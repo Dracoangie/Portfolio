@@ -1,0 +1,98 @@
+﻿/*
+:root 
+{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+   --pixel-size: 1px;
+   --bg: rgb(0, 255, 72);
+   --grid-cell: calc( var(--pixel-size) * 5);
+}
+
+:root::-webkit-scrollbar
+{
+  display: none;
+}
+
+@media( min-width: 1000px ) 
+{
+   :root 
+   {
+      --pixel-size: 10px;
+   }
+}*/
+
+canvas {
+    image-rendering: pixelated;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/*
+body 
+{
+   background: var(--bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.character 
+{
+   image-rendering: pixelated;
+   width: calc( var(--grid-cell)* 2 );
+   height: calc( var(--grid-cell)* 2 );
+   position: absolute;
+   overflow:hidden;
+   left: calc(50% - var(--grid-cell));
+   top: calc(50% - var(--grid-cell)); 
+}
+
+.shadow 
+{
+   image-rendering: pixelated;
+   width: calc( var(--grid-cell)* 2 );
+   height: calc( var(--grid-cell)* 2 );
+   position: absolute;
+   left:0;
+   top:0;
+   background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
+   background-size: 100%;
+}
+
+.character_spritesheet 
+{
+   image-rendering: pixelated;
+   position: absolute;
+   background: url("../img/DemoRpgCharacter.png") no-repeat no-repeat;
+   background-size: 100%;
+   width: calc( var(--grid-cell)* 8 );
+   height: calc( var(--grid-cell)* 8 );
+   animation: walkAnimation 0.6s steps(4) infinite;
+}
+
+.character.facing-down .character_spritesheet 
+{
+    background-position-y: calc(var(--pixel-size) * -10);
+}
+.character.facing-right .character_spritesheet 
+{
+    background-position-y: calc(var(--pixel-size) * -20);
+}
+.character.facing-up .character_spritesheet 
+{
+    background-position-y: calc(var(--pixel-size) * -30);
+}
+.character.facing-left .character_spritesheet 
+{
+    background-position-y: calc(var(--pixel-size) * -40);
+}
+
+@keyframes walkAnimation 
+{
+    from {
+        transform: translate3d(0%, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}*/
