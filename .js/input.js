@@ -134,9 +134,15 @@ function MouseUp (event)
 }
 
 function MouseMove (canvas,event)
-{
+{    // Obtiene el rectángulo delimitador del canvas
     let rect = canvas.getBoundingClientRect();
-    Input.mouse.x = event.clientX - rect.left;
-    Input.mouse.y = event.clientY - rect.top;
+
+    // Calcula la escala del canvas
+    let scaleX = canvas.width / rect.width;   // relación entre el ancho real del canvas y el ancho del elemento DOM
+    let scaleY = canvas.height / rect.height; // relación entre el alto real del canvas y el alto del elemento DOM
+
+    // Ajusta las coordenadas del ratón a la escala del canvas
+    Input.mouse.x = (event.clientX - rect.left) * scaleX;
+    Input.mouse.y = (event.clientY - rect.top) * scaleY;
     //console.log(Input.mouse);
 }

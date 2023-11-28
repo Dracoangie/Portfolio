@@ -78,7 +78,9 @@ function Start(canvas)
     controller.bgimage = new Image();
     //Gets src direction
     controller.bgimage.src = "img/Background.png";
-    controller.collision.push(new classCollision(200, 200, 100, 100));
+    controller.collision.push(new classCollision(200, 200, 100, 100, "img/arbusto.png"));
+    
+    controller.collision.forEach(classCollision => classCollision.Start());
 }
 //Update
 function Update(deltaTime) 
