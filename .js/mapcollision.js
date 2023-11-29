@@ -1,7 +1,8 @@
-class classCollision
+class classCollision extends Collision
 {
     constructor(x, y, width, height, imgSrc)
     {
+        super(); 
         this.x = x;
         this.y = y;
         this.width = width;

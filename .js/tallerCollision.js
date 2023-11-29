@@ -1,17 +1,16 @@
-class tallerCollision
+class tallerCollision extends Collision
 {
     
     imgColl = new Image;
     imgAFPlayer = new Image;
-    width;
-    height;
     PosX;
-    Posy;
+    PosY;
 
     constructor(x, y)
     {
-        this.x = x;
-        this.y = y;
+        super(); 
+        this.PosX = x;
+        this.PosY = y;
     }
 
     Start()
@@ -25,11 +24,11 @@ class tallerCollision
 
     Draw(ctx)
     {
-        ctx.drawImage(this.imgColl, this.PosX, this.PosY, this.width, this.height);
+        ctx.drawImage(this.imgColl, this.x, this.y, this.width, this.height);
     }
 
     DrawAfterPlayer(ctx)
     {
-        ctx.drawImage(this.imgAFPlayer, this.x, this.y);
+        ctx.drawImage(this.imgAFPlayer, this.PosX, this.PosY);
     }
 }

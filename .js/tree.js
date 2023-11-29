@@ -2,17 +2,11 @@ class tree extends tallerCollision {
 
     constructor(x, y) {
         super(x, y); 
-        this.imgColl;
-        this.imgAFPlayer;
-        this.width;
-        this,height;
-        this.PosX;
-        this.Posy;
-    }
-
-
-    // También puedes agregar nuevos métodos si lo necesitas
-    NuevoMetodo() {
-        // Lógica específica de la clase hija en un nuevo método
+        this.imgColl.src = "img/tronco.png";
+        this.imgAFPlayer.src = "img/tree.png";
+        this.width = 18;
+        this.height = 12;
+        this.x = this.PosX - this.width/2 + 58/2;
+        this.y = this.PosY + 40;
     }
 }
