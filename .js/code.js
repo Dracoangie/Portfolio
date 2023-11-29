@@ -4,8 +4,6 @@ const controller={
     canvas:null,
     ctx:null,
     scene:null,
-    bgimage:null,
-    collision:[],
 
     onload:()=>
     {
@@ -77,19 +75,12 @@ function Start()
 {
     controller.scene = new Scene();
     controller.scene.Start();
-    /*layer.Start();
-    controller.bgimage = new Image();
-    //Gets src direction
-    controller.bgimage.src = "img/Background.png";
-    controller.collision.push(new classCollision(200, 200, 100, 100, "img/arbusto.png"));
-    
-    controller.collision.forEach(classCollision => classCollision.Start());
-*/}
+}
+
 //Update
 function Update(deltaTime) 
 {
     controller.scene.Update(deltaTime);
-    //player.Update(deltaTime, controller.collision);
 }
 //Looping
 function Loop() 
@@ -104,13 +95,6 @@ function Draw(ctx)
 {
     //Clears canvas
     ctx.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
+    //Render the scene
     controller.scene.Render(ctx);
-    //Draws bgimage
-    /*ctx.drawImage(controller.bgimage, 0, 0);
-    //Draws collision square
-    controller.collision.forEach(classCollision => classCollision.Draw(ctx));
-    //Draws fps and time on screen
-    timer.draw(ctx);
-    //End
-    player.Draw(ctx);*/
 }

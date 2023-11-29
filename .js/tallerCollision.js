@@ -1,13 +1,17 @@
-class classCollision
+class tallerCollision
 {
-    constructor(x, y, width, height, imgSrc)
+    
+    imgColl = new Image;
+    imgAFPlayer = new Image;
+    width;
+    height;
+    PosX;
+    Posy;
+
+    constructor(x, y)
     {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
-        this.img = new Image;
-        this.img.src = imgSrc
     }
 
     Start()
@@ -21,11 +25,11 @@ class classCollision
 
     Draw(ctx)
     {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.imgColl, this.PosX, this.PosY, this.width, this.height);
     }
 
     DrawAfterPlayer(ctx)
     {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.imgAFPlayer, this.x, this.y);
     }
 }
