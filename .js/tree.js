@@ -1,4 +1,4 @@
-class tree extends tallerCollision {
+class tree extends ComplexObject {
 
     constructor(x, y) {
         super(x, y); 

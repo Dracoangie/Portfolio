@@ -1,4 +1,4 @@
-class tallerCollision extends Collision
+class ComplexObject extends Collision
 {
     
     imgColl = new Image;

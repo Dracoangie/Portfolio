@@ -17,4 +17,8 @@ class Collision
     Draw(ctx)
     {
     }
+    
+    DrawAfterPlayer(ctx)
+    {
+    }
 }

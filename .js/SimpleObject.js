@@ -1,4 +1,4 @@
-class classCollision extends Collision
+class SimpleObject extends Collision
 {
     constructor(x, y, width, height, imgSrc)
     {
