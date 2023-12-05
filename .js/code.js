@@ -8,12 +8,11 @@ const controller={
     onload:()=>
     {
         let canvas = document.getElementById("myCanvas");
-        canvas.height=580
-        canvas.width=1200
-        canvas.style.width=3600
-        canvas.style.height=2400
+        canvas.width=window.innerWidth
+        canvas.height=window.innerHeight
         controller.canvas=canvas;
         controller.ctx = controller.canvas.getContext("2d");
+        
 
         SetupKeyboardEvents();
         SetupMouseEvents(controller.canvas);
@@ -98,3 +97,10 @@ function Draw(ctx)
     //Render the scene
     controller.scene.Render(ctx);
 }
+
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.modal_close');
+
+closeModal.addEventListener('click', (e)=>{
+    modal.classList.remove('modal--show');
+})

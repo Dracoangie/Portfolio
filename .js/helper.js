@@ -17,5 +17,20 @@ function isPointInsideSquare(point, square){
         return true;
     }
     return false;
+}
 
+function isInTrigger(first, second)
+{
+    let trigger = {
+        x: second.x - first.width/4,
+        y: second.y - first.height/4,
+        width: second.width + first.width/2,
+        height: second.height  + first.height/2
+    }
+
+    if(IsColliding(first, trigger))
+    {
+        return true;
+    }
+    return false;
 }

@@ -2,33 +2,31 @@ class Scene{
 
     
     bgimage = null;
-    collisions = [];
-    tallercollisions = [];
     objects = [];
 
     constructor(){
+        //----------------------------- aqui creamos los objetos de la imagen --------------------------------
         this.bgimage = new Image();
         //Gets src direction
         this.bgimage.src = "img/Background.png";
-        //this.collisions.push(new SimpleObject(200, 200, 100, 100, "img/arbusto.png"));
-        //this.tallercollisions.push(new tree(200,400));
-        this.objects.push(new SimpleObject(200, 200, 100, 100, "img/arbusto.png"));
+
+        // variables de simpleobjects:      x    y     width  height       img            tag
+        this.objects.push(new SimpleObject(200, 200,   100,   100,    "img/arbusto.png", "arbusto"));
+        
+        // variables de tree:        x  y  
         this.objects.push(new tree(200,400));
     
     }
 
     Start()
     {
-        player.Start();
-        //this.collisions.forEach(SimpleObject => SimpleObject.Start());
-        //this.tallercollisions.forEach(ComplexObject => ComplexObject.Start());
-
+        player.Start(this.objects);
     }
 
     Update(deltaTime)
     {
         player.Update(deltaTime, this.objects);
-
+        this.objects.forEach(Collision => Collision.Update(deltaTime));
     }
 
     Render(ctx)
@@ -37,11 +35,10 @@ class Scene{
         ctx.drawImage(this.bgimage, 0, 0);
         //Draws collision square
         this.objects.forEach(Collision => Collision.Draw(ctx));
-        //this.collisions.forEach(SimpleObject => SimpleObject.Draw(ctx));
         //Draws player
         player.Draw(ctx);
+        //Drwas after player
         this.objects.forEach(ComplexObject => ComplexObject.DrawAfterPlayer(ctx));
-        //this.tallercollisions.forEach(ComplexObject => ComplexObject.DrawAfterPlayer(ctx));
     }
 
 }

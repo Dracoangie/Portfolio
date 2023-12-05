@@ -144,5 +144,4 @@ function MouseMove (canvas,event)
     // Ajusta las coordenadas del ratón a la escala del canvas
     Input.mouse.x = (event.clientX - rect.left) * scaleX;
     Input.mouse.y = (event.clientY - rect.top) * scaleY;
-    //console.log(Input.mouse);
 }

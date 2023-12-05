@@ -15,12 +15,16 @@ var player =
     horDir: 0,
     verDir: 0,
 
-    Start: function() 
+    trigger:[],
+    doOnce: false,
+
+    Start: function(Triggers) 
     {
         this.x = this.y = 400;
         this.speed = 2;
         this.imgplayer = new Image(32, 32);
         this.imgplayer.src = "img/Character.png";
+        this.hasTriggers(Triggers);
     },
 
     Update: function(deltaTime, others)
@@ -31,6 +35,17 @@ var player =
         this.mouse();
     },
 
+    //--- Chequea las colisiones de scene y guarda las que sean un trigger ---
+    hasTriggers: function(Triggers)
+    {
+        for(let i = 0; i < Triggers.length; i++)
+        {
+            if(Triggers[i].tag != null)
+                this.trigger.push(Triggers[i]);
+        }
+    },
+
+    //--- Registra los de input asociados al player y actua en consecuencia (movimiento del jugador e interacciones) ---
     Action: function()
     {
         this.posyanim = 0;
@@ -64,6 +79,7 @@ var player =
         
     },
 
+    //--- Chequea la dirección en la que se mueve el jugador y le asigna la animacion correspondiente ---
     AnimationDir: function(deltaTime)
     {
         if(this.timeanim > 0.2)
@@ -76,7 +92,8 @@ var player =
         this.timeanim += deltaTime;
     },
 
-    Collision: function(others)
+    //--- Gestiona las colisiones y los triggers ---
+    Collision: function(colliders)
     {
         //collider based on the speed
         let DirCollisionRect = {
@@ -86,10 +103,10 @@ var player =
             height: this.height/2
         }
         //Collision detected
-        for(let i = 0; i < others.length; i++){
-            if(IsColliding(DirCollisionRect, others[i]))
+        for(let i = 0; i < colliders.length; i++){
+            if(IsColliding(DirCollisionRect, colliders[i]))
             {
-                while(IsColliding(DirCollisionRect, others[i]))
+                while(IsColliding(DirCollisionRect, colliders[i]))
                 {
                     DirCollisionRect.x -= this.speed* this.horDir;
                     DirCollisionRect.y -= this.speed* this.verDir;
@@ -98,21 +115,54 @@ var player =
                 this.y = DirCollisionRect.y - this.height/2;
             }
         }
+
+        //Trigger detected
+        for(let i = 0; i < this.trigger.length; i++){
+            // si ha detectado que está dentro del trigger llama a la funcion isInTrigger del trigger 
+            if(isInTrigger(DirCollisionRect, this.trigger[i]))
+            {
+                // dependiendo del tag que tenga el trigger se define lo que hará el jugador
+                switch(this.trigger[i].tag){
+                    case 'arbusto':
+                        break;
+                    default:
+                        console.log("tag not found");
+                }
+                this.trigger[i].isInTrigger();
+            }
+            //sino entra en el trigger llama a la funcion isOutTrigger del trigger
+            else
+            {
+                // dependiendo del tag que tenga el trigger se define lo que hará el jugador
+                switch(this.trigger[i].tag){
+                    case 'arbusto':
+                        break;
+                    default:
+                        console.log("tag not found");
+                }
+                this.trigger[i].isOutTrigger();
+            }
+        }
     },
 
     mouse: function()
     {
         if(Input.IsMousePressed() && isPointInsideSquare(Input.mouse, this)){
-            
-            console.log(Input.mouse.x ,Input.mouse.y);
-            console.log(this.x ,this.y);
+            if(this.doOnce == false)
+            {
+                this.doOnce = true;
+                modal.classList.add('modal--show');
+                Input.mouse.up = true;
+                Input.mouse.pressed = false;
+            }
         }
+        else
+        this.doOnce = false;
     },
     
     Draw: function(ctx)
     {
         //ctx.rect(this.x, this.y + (this.height/2), this.width, this.height/2);
-                
         //ctx.fill();
         ctx.drawImage(this.imgplayer, this.posxanim * 32, this.posyanim * 32, 32, 32, this.x, this.y, 32, 32);
     }
