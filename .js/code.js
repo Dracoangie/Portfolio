@@ -80,6 +80,8 @@ function Start()
 function Update(deltaTime) 
 {
     controller.scene.Update(deltaTime);
+    controller.canvas.width=window.innerWidth
+    controller.canvas.height=window.innerHeight
 }
 //Looping
 function Loop() 

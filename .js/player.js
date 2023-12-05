@@ -75,7 +75,7 @@ var player =
         }
         
         this.x = this.x + (this.speed * this.horDir);
-        this.y = this.y + (this.speed * this.verDir);
+        this.y = this.y + (this.speed*0.75 * this.verDir);
         
     },
 
@@ -98,7 +98,7 @@ var player =
         //collider based on the speed
         let DirCollisionRect = {
             x: this.x + (this.speed * this.horDir),
-            y: (this.y + this.height/2) + (this.speed * this.verDir),
+            y: (this.y + this.height/2) + (this.speed/2 * this.verDir),
             width: this.width,
             height: this.height/2
         }
@@ -109,7 +109,7 @@ var player =
                 while(IsColliding(DirCollisionRect, colliders[i]))
                 {
                     DirCollisionRect.x -= this.speed* this.horDir;
-                    DirCollisionRect.y -= this.speed* this.verDir;
+                    DirCollisionRect.y -= this.speed/2* this.verDir;
                 }
                 this.x = DirCollisionRect.x;
                 this.y = DirCollisionRect.y - this.height/2;
