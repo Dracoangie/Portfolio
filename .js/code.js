@@ -2,14 +2,22 @@
 const controller={
     
     canvas:null,
+    canvasMaxWidth:null,
+    canvasMaxHeight:null,
+    canvasLastWidtht:null,
+    canvasLastHeight:null,
     ctx:null,
     scene:null,
 
     onload:()=>
     {
         let canvas = document.getElementById("myCanvas");
+        canvasMaxWidth = 1000,
+        canvasMaxHeight = 1000,
         canvas.width=window.innerWidth
         canvas.height=window.innerHeight
+        canvasLastWidtht=0
+        canvasLastHeight=0
         controller.canvas=canvas;
         controller.ctx = controller.canvas.getContext("2d");
         
@@ -80,8 +88,7 @@ function Start()
 function Update(deltaTime) 
 {
     controller.scene.Update(deltaTime);
-    controller.canvas.width=window.innerWidth
-    controller.canvas.height=window.innerHeight
+    canvasDimensionsFix();
 }
 //Looping
 function Loop() 
@@ -98,7 +105,31 @@ function Draw(ctx)
     ctx.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
     //Render the scene
     controller.scene.Render(ctx);
+    ctx.translate(-player.speed * player.horDir, -player.speed*0.75 * player.verDir);
 }
+
+function canvasDimensionsFix()
+{
+    if(canvasLastWidtht != window.innerWidth || canvasLastHeight != window.innerHeight)
+    {
+        controller.canvas.width=window.innerWidth
+        controller.canvas.height=window.innerHeight
+        if(controller.canvas.width > canvasMaxWidth)
+        {
+            controller.canvas.height=(window.innerHeight/window.innerWidth) * canvasMaxWidth
+            controller.canvas.width=canvasMaxWidth;
+        }
+        else if(controller.canvas.height > canvasMaxHeight)
+        {
+            controller.canvas.height=canvasMaxHeight
+            controller.canvas.width=(window.innerHeight/window.innerWidth) * canvasMaxHeight
+        }
+        canvasLastWidtht = window.innerWidth;
+        canvasLastHeight = window.innerHeight;
+    }
+}
+
+//----- css connections -----
 
 const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
