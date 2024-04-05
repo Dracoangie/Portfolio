@@ -1,6 +1,6 @@
 var player =
 {
-    X:0,
+    x:0,
     y:0,
     width: 32,
     height: 32,
@@ -113,6 +113,9 @@ var player =
                 }
                 this.x = DirCollisionRect.x;
                 this.y = DirCollisionRect.y - this.height/2;
+                
+                this.horDir = 0;
+                this.verDir = 0;
             }
         }
 
