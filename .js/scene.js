@@ -10,10 +10,7 @@ class Scene{
     objects = [];
 
     constructor(){
-
-        this.canvasLastWidtht=0
-        this.canvasLastHeight=0
-
+/*
         //----------------------------- aqui creamos los objetos de la imagen --------------------------------
         this.bgimage = new Image();
         this.roomimage = new Image();
@@ -29,21 +26,21 @@ class Scene{
         this.objects.push(new SimpleObject(200, 200,   100,   100,    "img/arbusto.png", "arbusto"));
         
         // variables de tree:        x  y  
-        this.objects.push(new tree(200,400));
-    
+        this.objects.push(new tree(200,400));*/
     }
 
     Start()
     {
+        map.Start();
         player.Start(this.objects);
-        controller.ctx.translate(player.x, player.y);
     }
 
     Update(deltaTime)
     {
         player.Update(deltaTime, this.objects);
-        this.objects.forEach(Collision => Collision.Update(deltaTime));
-        this.canvasDimensionsFix();
+        map.Update();
+        //this.objects.forEach(Collision => Collision.Update(deltaTime));
+        //this.canvasDimensionsFix();
     }
 
     
@@ -70,20 +67,21 @@ class Scene{
 
     Render(ctx)
     {
-        controller.ctx.transform()
-        
-        controller.ctx.translate(player.x, player.y);
+        //controller.ctx.transform()
+        /*
+        //controller.ctx.translate(player.x, player.y);
         //Draws bgimage
         ctx.drawImage(this.bgimage, 0, 0);
         ctx.drawImage(this.roomimage, 0, 0);
         ctx.drawImage(this.galleryimage, 0, 0);
         ctx.drawImage(this.cinemaimage, 0, 0);
         //Draws collision square
-        this.objects.forEach(Collision => Collision.Draw(ctx));
+        this.objects.forEach(Collision => Collision.Draw(ctx));*/
         //Draws player
+        map.Draw(ctx);
         player.Draw(ctx);
         //Drwas after player
-        this.objects.forEach(ComplexObject => ComplexObject.DrawAfterPlayer(ctx));
+        //this.objects.forEach(ComplexObject => ComplexObject.DrawAfterPlayer(ctx));
         //ctx.translate(-player.speed * player.horDir, -player.speed*0.75 * player.verDir);
     }
 

@@ -34,3 +34,18 @@ function isInTrigger(first, second)
     }
     return false;
 }
+
+function IsInDiamond(x, y, a, b, dl, dc) {
+
+
+    // Ajustar las coordenadas del punto respecto al nuevo centro del rombo
+    let xp = x - a;
+    let yp = y - b;
+
+    // Verificar si el punto ajustado está dentro del rombo
+    if (Math.abs(xp) / (dl / 2) + Math.abs(yp) / dc <= 1) {
+        return true;
+    } else {
+        return false;
+    }
+}

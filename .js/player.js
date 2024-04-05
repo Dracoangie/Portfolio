@@ -24,17 +24,19 @@ var player =
         this.speed = 2;
         this.imgplayer = new Image(32, 32);
         this.imgplayer.src = "img/Character.png";
-        this.hasTriggers(Triggers);
+        //this.hasTriggers(Triggers);
     },
 
     Update: function(deltaTime, others)
     {
-        this.Action();
+
+
+        /*this.Action();
         this.AnimationDir(deltaTime);
         this.Collision(others);
-        this.mouse();
+        this.mouse();*/
     },
-
+    /*
     //--- Chequea las colisiones de scene y guarda las que sean un trigger ---
     hasTriggers: function(Triggers)
     {
@@ -162,7 +164,13 @@ var player =
         else
         this.doOnce = false;
     },
-    
+    */
+
+    mouseMove: function( a, b){
+        this.x = a - this.width/2
+        this.y = b - this.height/2
+    },
+
     Draw: function(ctx)
     {
         //ctx.rect(this.x, this.y + (this.height/2), this.width, this.height/2);
