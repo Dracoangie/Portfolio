@@ -2,8 +2,8 @@
 const controller={
     
     canvas:null,
-    canvasMaxWidth:null,
-    canvasMaxHeight:null,
+    canvasMaxWidth: null,
+    canvasMaxHeight: null,
     ctx:null,
     scene:null,
 
