@@ -21,7 +21,7 @@ var player =
 
     Start: function() 
     {
-        this.speed = 0.2;
+        this.speed = 20;
         this.imgplayer = new Image(32, 32);
         this.imgplayer.src = "img/Character.png";
     },
@@ -39,18 +39,22 @@ var player =
         this.moveInMap(deltaTime);
     },
 
-    moveInMap(deltaTime)
-    {
-        if(this.path.length > 0)
-        {
-            this.speed = this.speed - deltaTime;
-            if(this.speed < 0)
-            {            
-                this.x = map.pos[[this.path[0].x,this.path[0].y]].x + 16;
-                this.y = map.pos[[this.path[0].x,this.path[0].y]].y -8;
-                this.pos = {x: this.path[0].x, y:this.path[0].y};
+    moveInMap: function(deltaTime) {
+        if (this.path.length > 0) {
+            // Calcula la posición de destino en el mapa
+            var targetX = map.pos[[this.path[0].x, this.path[0].y]].x + 16;
+            var targetY = map.pos[[this.path[0].x, this.path[0].y]].y - 8;
+    
+            // Interpola suavemente la posición del jugador hacia la posición de destino
+            this.x += (targetX - this.x) * deltaTime * this.speed;
+            this.y += (targetY - this.y) * deltaTime * this.speed;
+    
+            // Si el jugador está lo suficientemente cerca de la posición de destino, pasa a la siguiente posición en la ruta
+            if (Math.abs(this.x - targetX) < 1 && Math.abs(this.y - targetY) < 1) {
+                this.x = targetX;
+                this.y = targetY;
+                this.pos = {x: this.path[0].x, y: this.path[0].y};
                 this.path.shift();
-                this.speed = 0.2;
             }
         }
     },
