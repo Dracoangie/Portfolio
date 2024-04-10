@@ -11,8 +11,8 @@ var player =
     speed:2,
 
     timeanim:0,
-    posxanim: 0,
-    posyanim: 0,
+    posXanim: 0,
+    posYanim: 0,
 
     horDir: 0,
     verDir: 0,
@@ -22,8 +22,10 @@ var player =
     Start: function() 
     {
         this.speed = 20;
-        this.imgplayer = new Image(32, 32);
-        this.imgplayer.src = "img/Character.png";
+        this.imgplayer = new Image(0, 0);
+        this.imgplayer.src = "img/Personaje.png";
+        
+        this.timeAnim = 0;
     },
 
     setPosition: function(x,y, a ,b)
@@ -35,15 +37,15 @@ var player =
 
     Update: function(deltaTime)
     {
-
         this.moveInMap(deltaTime);
+        this.AnimationDirector(deltaTime);
     },
 
     moveInMap: function(deltaTime) {
         if (this.path.length > 0) {
             // Calcula la posición de destino en el mapa
-            var targetX = map.pos[[this.path[0].x, this.path[0].y]].x + 16;
-            var targetY = map.pos[[this.path[0].x, this.path[0].y]].y - 8;
+            var targetX = map.pos[[this.path[0].x, this.path[0].y]].x ;
+            var targetY = map.pos[[this.path[0].x, this.path[0].y]].y - 42;
     
             // Interpola suavemente la posición del jugador hacia la posición de destino
             this.x += (targetX - this.x) * deltaTime * this.speed;
@@ -56,7 +58,25 @@ var player =
                 this.pos = {x: this.path[0].x, y: this.path[0].y};
                 this.path.shift();
             }
+            
         }
+    },
+
+    AnimationDirector: function(deltaTime){
+        
+        if(this.timeAnim > 0.1){
+            newframe = true;
+            this.timeAnim = 0;
+        }
+        else newframe = false;
+        if(newframe){
+            if(this.posXanim > 4){
+                this.posXanim =0;
+            }
+            this.posXanim ++;
+        }
+        this.timeAnim += deltaTime;
+        
     },
 
     setPath: function( path){
@@ -66,6 +86,7 @@ var player =
 
     Draw: function(ctx)
     {
-        ctx.drawImage(this.imgplayer, this.posxanim * 32, this.posyanim * 32, 32, 32, this.x, this.y, 32, 32);
+        ctx.drawImage(this.imgplayer, this.posXanim * 64, this.posYanim * 64, 64, 64, this.x, this.y, 64, 64);
+
     }
 }

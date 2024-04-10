@@ -22,7 +22,7 @@ var map = {
           
                 this.pos[[i, j]] =  { x: controller.canvas.width/2+i*32-j*32, y: controller.canvas.height/2+j*16+i*16};
                 if(this.grid[i][j] === 2){
-                    player.setPosition(i,j, this.pos[[i, j]].x +16, this.pos[[i, j]].y-8);
+                    player.setPosition(i,j, this.pos[[i, j]].x , this.pos[[i, j]].y- 42);
                     this.grid[i][j] = 0;
                 }
             }
@@ -41,7 +41,6 @@ var map = {
                 this.doOnce = true;
                 Input.mouse.up = true;
                 Input.mouse.pressed = false;
-                dentro = false;
     
                 for (var i = 0; i < this.posWidth; i++) {
                     for (let j = 0; j < this.posHeight; j++) {
@@ -55,16 +54,11 @@ var map = {
     
                         // Verifica si el clic del ratón está dentro de los límites del mapa
                         if(IsInDiamond(mouseX, mouseY, x, y, 64, 16) && this.grid[i][j] === 0) {
-                            dentro = true;
                             player.setPath(this.aStar(player.pos, { x : i, y: j}, this.grid));
                             break;
                         }
                     }
                 }
-                if(dentro)
-                    console.log("dentro");
-                else
-                    console.log("fuera");
             }
             else
                 this.doOnce = false;

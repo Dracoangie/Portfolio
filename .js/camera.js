@@ -2,7 +2,7 @@ var camera = {
 
     x: 0, // Posición x de la cámara
     y: 0, // Posición y de la cámara 
-    lagSpeed: 0.05,
+    lagSpeed: 0.1,
 
     Start: function(){
         this.adjustSize();
