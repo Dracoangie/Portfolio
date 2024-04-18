@@ -5,7 +5,8 @@ class Scene{
 
     Start()
     {
-        map.Start();
+        console.log(map);
+        map.Start()
         player.Start();
         camera.Start();
     }
