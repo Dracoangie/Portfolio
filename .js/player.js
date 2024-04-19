@@ -44,8 +44,8 @@ var player =
     moveInMap: function(deltaTime) {
         if (this.path.length > 0) {
             // Calcula la posición de destino en el mapa
-            var targetX = map.outside.pos[this.path[0].x][ this.path[0].y].x ;
-            var targetY = map.outside.pos[this.path[0].x][ this.path[0].y].y - 42;
+            var targetX = map.actualNode.pos[this.path[0].x][ this.path[0].y].x ;
+            var targetY = map.actualNode.pos[this.path[0].x][ this.path[0].y].y - 42;
             
             // Interpola suavemente la posición del jugador hacia la posición de destino
             this.x += (targetX - this.x) * deltaTime * this.speed;
