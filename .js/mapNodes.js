@@ -1,30 +1,27 @@
 class MapNode{
-
-    width;
-    height;
-    grid;
-    pos;
-
-    constructor(width, height, grid){
-        this.width = width
-        this.height = height
+    constructor(width, height, grid) {
+        this.width = width;
+        this.height = height;
         this.grid = grid;
-        this.bgimage = new Image(),
+        this.bgimage = new Image();
         this.bgimage.src = "img/suelo.png";
-        this.pos = new Array[[,]];
-    }
+        this.pos = [];
 
-    start(){
-        this.mapCreate();
+        // Inicializando el array multidimensional
+        for (let i = 0; i < width; i++) {
+            this.pos[i] = new Array(height);
+        }
     }
 
     mapCreate() {
-        for (var i = 0; i < this.Width; i++) {
-            for (let j = 0; j < this.Height; j++) {
-          
-                this.pos[[i, j]] =  { x: controller.canvas.width/2+i*32-j*32, y: controller.canvas.height/2+j*16+i*16};
-                if(this.grid[i][j] === 2){
-                    player.setPosition(i,j, this.pos[[i, j]].x , this.pos[[i, j]].y- 42);
+        for (let i = 0; i < this.width; i++) {
+            for (let j = 0; j < this.height; j++) {
+                this.pos[i][j] = {
+                    x: controller.canvas.width / 2 + i * 32 - j * 32,
+                    y: controller.canvas.height / 2 + j * 16 + i * 16
+                };
+                if (this.grid[i][j] === 2) {
+                    player.setPosition(i, j, this.pos[i][j].x, this.pos[i][j].y - 42);
                     this.grid[i][j] = 0;
                 }
             }
@@ -32,12 +29,16 @@ class MapNode{
         console.log(this.pos);
     }
 
+    start(){
+        this.mapCreate();
+    }
+
     checkposition(mouseX, mouseY){
         for (var i = 0; i < this.width; i++) {
             for (let j = 0; j < this.height; j++) {
 
-                const x = this.pos[[i, j]].x + 32;
-                const y = this.pos[[i, j]].y + 16;
+                const x = this.pos[i][j].x + 32;
+                const y = this.pos[i][j].y + 16;
 
                 // Verifica si el clic del ratón está dentro de los límites del mapa
                 if(IsInDiamond(mouseX, mouseY, x, y, 64, 16) && this.grid[i][j] === 0) {
