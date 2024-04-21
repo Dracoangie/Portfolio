@@ -57,6 +57,12 @@ var player =
                 this.y = targetY;
                 this.pos = {x: this.path[0].x, y: this.path[0].y};
                 this.path.shift();
+                if(this.path.length == 0 && map.actualNode.changeRoom != null)
+                {
+                    map.changeRoom(map.actualNode.changeRoom);
+                    map.actualNode.changeRoom = null;
+                    console.log("fin");
+                }
             }
             
         }

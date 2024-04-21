@@ -1,11 +1,17 @@
 class MapNode{
-    constructor(width, height, grid) {
+    constructor(tag, width, height, grid, extraX, extraY) {
+        this.extraX = extraX;
+        this.extraY = extraY;
         this.width = width;
         this.height = height;
         this.grid = grid;
         this.bgimage = new Image();
         this.bgimage.src = "img/suelo.png";
         this.pos = [];
+        this.doors = [];
+        this.changeRoom = null;
+        this.tag = tag;
+        this.lastNodeTag = null;
 
         // Inicializando el array multidimensional
         for (let i = 0; i < width; i++) {
@@ -14,19 +20,40 @@ class MapNode{
     }
 
     mapCreate() {
+        var doorstimer = 0;
+        var playerPosSet = false;
         for (let i = 0; i < this.width; i++) {
             for (let j = 0; j < this.height; j++) {
                 this.pos[i][j] = {
-                    x: controller.canvas.width / 2 + i * 32 - j * 32,
-                    y: controller.canvas.height / 2 + j * 16 + i * 16
+                    x: controller.canvas.width / 2 + (i+ this.extraX) * 32 - (j+ this.extraY) * 32,
+                    y: controller.canvas.height / 2 + (j+ this.extraY) * 16 + (i+ this.extraX) * 16
                 };
                 if (this.grid[i][j] === 2) {
-                    player.setPosition(i, j, this.pos[i][j].x, this.pos[i][j].y - 42);
+                    player.setPosition(i, j, this.pos[i][j].x +this.extraX, this.pos[i][j].y - 42);
                     this.grid[i][j] = 0;
+                    playerPosSet = true;
+                }
+                if(this.grid[i][j] != 0 &&this.grid[i][j] != 1)
+                {
+                    this.doors[doorstimer] = {
+                        tag:this.grid[i][j],
+                        x: i,
+                        y: j};
+                    this.grid[i][j] = 0; 
+                    doorstimer = doorstimer + 1;
                 }
             }
         }
-        console.log(this.pos);
+        if(playerPosSet == false)
+        {
+            for (var i = 0; i < this.doors.length; i++) {
+                if(this.doors[i].tag == this.lastNodeTag){
+                    var x = this.doors[i].x;
+                    var y = this.doors[i].y;
+                    player.setPosition(x, y, this.pos[x][y].x +this.extraX, this.pos[x][y].y - 42);
+                }
+            }}
+        console.log("started", this.extraX, this.extraY);
     }
 
     start(){
@@ -37,12 +64,20 @@ class MapNode{
         for (var i = 0; i < this.width; i++) {
             for (let j = 0; j < this.height; j++) {
 
-                const x = this.pos[i][j].x + 32;
+                const x = this.pos[i][j].x + 32 ;
                 const y = this.pos[i][j].y + 16;
 
                 // Verifica si el clic del ratón está dentro de los límites del mapa
                 if(IsInDiamond(mouseX, mouseY, x, y, 64, 16) && this.grid[i][j] === 0) {
                     player.setPath(this.aStar(player.pos, { x : i, y: j}, this.grid));
+                    for(var k = 0; k < this.doors.length; k++)
+                    {
+                        if(this.doors[k].x == i && this.doors[k].y == j)
+                        {
+                            this.changeRoom  = this.doors[k].tag;
+                            break;
+                        }
+                    }
                     break;
                 }
             }
@@ -114,8 +149,8 @@ class MapNode{
             for (let j = 0; j < this.height; j++) {
                 if(this.grid[i][j] === 0 || this.grid[i][j] === 2) {
                     // Calcula la posición de la imagen teniendo en cuenta la posición de la cámara
-                    const imageX = controller.canvas.width / 2 + i * 32 - j * 32 ;
-                    const imageY = controller.canvas.height / 2 + j * 16 + i * 16 ;
+                    const imageX = this.pos[i][j].x ;
+                    const imageY = this.pos[i][j].y ;
                     ctx.drawImage(this.bgimage, imageX, imageY);
                 }
             }
