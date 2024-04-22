@@ -70,12 +70,15 @@ class MapNode{
                 // Verifica si el clic del ratón está dentro de los límites del mapa
                 if(IsInDiamond(mouseX, mouseY, x, y, 64, 16) && this.grid[i][j] === 0) {
                     player.setPath(this.aStar(player.pos, { x : i, y: j}, this.grid));
-                    for(var k = 0; k < this.doors.length; k++)
-                    {
-                        if(this.doors[k].x == i && this.doors[k].y == j)
+                    if(player.path.length > 0){
+
+                        for(var k = 0; k < this.doors.length; k++)
                         {
-                            this.changeRoom  = this.doors[k].tag;
-                            break;
+                            if(this.doors[k].x == i && this.doors[k].y == j)
+                            {
+                                this.changeRoom  = this.doors[k].tag;
+                                break;
+                            }
                         }
                     }
                     break;
