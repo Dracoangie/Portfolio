@@ -19,6 +19,15 @@ function isPointInsideSquare(point, square){
     return false;
 }
 
+function isPointInsideSquare(x,y, square){
+
+    if (x >= square.x && x <= square.x + square.width &&
+        y >= square.y && y <= square.y + square.height) {
+        return true;
+    }
+    return false;
+}
+
 function isInTrigger(first, second)
 {
     let trigger = {

@@ -53,7 +53,6 @@ class MapNode{
                     player.setPosition(x, y, this.pos[x][y].x +this.extraX, this.pos[x][y].y - 42);
                 }
             }}
-        console.log("started", this.extraX, this.extraY);
     }
 
     start(){
