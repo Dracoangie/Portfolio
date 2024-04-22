@@ -62,6 +62,8 @@ var player =
                     map.changeRoom(map.actualNode.changeRoom);
                     map.actualNode.changeRoom = null;
                     console.log("fin");
+                    
+                    modal.classList.add('modal--show');
                 }
             }
             
