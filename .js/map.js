@@ -51,11 +51,13 @@ var map = {
             if(Input.IsScreenTouch()){
                 if(this.doOnce == false)
                 {
-                    this.doOnce = true;
-                    Input.touch.up = true;
-                    Input.touch.pressed = false;
     
-                    this.actualNode.checkposition(Input.touch.x + camera.x,Input.touch.y + camera.y);
+                    if(this.actualNode.checkposition(Input.touch.x + camera.x,Input.touch.y + camera.y))
+                    {
+                        Input.touch.up = true;
+                        Input.touch.pressed = false;
+                        this.doOnce = true;
+                    }
                 }
                 else
                     this.doOnce = false;
@@ -63,15 +65,14 @@ var map = {
         }
         else {
             if(Input.IsMousePressed()){
-                
-        console.log(Input.mouse.x, Input.mouse.y);
                 if(this.doOnce == false)
                 {
-                    this.doOnce = true;
-                    Input.mouse.up = true;
-                    Input.mouse.pressed = false;
-    
-                    this.actualNode.checkposition(Input.mouse.x + camera.x,Input.mouse.y + camera.y);
+                    if(this.actualNode.checkposition(Input.mouse.x + camera.x,Input.mouse.y + camera.y))
+                    {
+                        Input.mouse.up = true;
+                        Input.mouse.pressed = false;
+                        this.doOnce = true;
+                    }
                 }
                 else
                     this.doOnce = false;

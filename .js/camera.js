@@ -22,8 +22,15 @@ var camera = {
     },
 
     adjustSize: function() {
-        this.width = Math.min(controller.canvas.width, window.innerWidth);
-        this.height = Math.min(controller.canvas.height, window.innerHeight);
+        if (isMobileDevice()) {
+            // Configuraciones para dispositivos móviles
+            this.width = window.innerWidth;
+            this.height = window.innerHeight;
+        } else {
+            // Configuraciones para escritorio o tablets
+            this.width = Math.min(controller.canvas.width, window.innerWidth);
+            this.height = Math.min(controller.canvas.height, window.innerHeight);
+        }
     },
 
     Draw: function(ctx)

@@ -76,7 +76,7 @@ class MapNode{
                             if(this.doors[k].x == i && this.doors[k].y == j)
                             {
                                 this.changeRoom  = this.doors[k].tag;
-                                break;
+                                return true;
                             }
                         }
                     }
@@ -84,6 +84,7 @@ class MapNode{
                 }
             }
         }
+        return false;
     }
 
     aStar (start, goal, grid) {

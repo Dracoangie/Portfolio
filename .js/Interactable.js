@@ -10,40 +10,44 @@ class interactable{
 
     Update()
     {
-        this.MouseInteraction();
+        this.Interaction();
     }
 
-    MouseInteraction()
+    Interaction()
     {
-        if (isMobileDevice()) {
-            if(Input.IsScreenTouch()){
-                if(this.doOnce == false)
+        if (isMobileDevice() && Input.IsScreenTouch()) {
+            
+            if(this.doOnce == false)
+            {
+                if(isPointInsideSquare(Input.touch.x + camera.x, Input.touch.y + camera.y, this))
                 {
-                    this.doOnce = true;
+                    modal.classList.add('modal--show')
                     Input.touch.up = true;
                     Input.touch.pressed = false;
-    
-                    if(isPointInsideSquare(Input.mouse.x + camera.x, Input.mouse.y + camera.y, this))
-                    {modal.classList.add('modal--show');}                 }
-                else
-                    this.doOnce = false;
+                    
+                    this.doOnce = true;
+                } 
             }
+            else
+                this.doOnce = false;
         }
         else {
-            if(Input.IsMousePressed()){
+            if(Input.IsMousePressed())
+            {
                 if(this.doOnce == false)
                 {
-                    this.doOnce = true;
-                    Input.mouse.up = true;
-                    Input.mouse.pressed = false;
-    
                     if(isPointInsideSquare(Input.mouse.x + camera.x, Input.mouse.y + camera.y, this))
-                    {modal.classList.add('modal--show');} 
+                    {
+                        modal.classList.add('modal--show')
+                        Input.mouse.up = true;
+                        Input.mouse.pressed = false;
+                        
+                        this.doOnce = true;
+                    } 
                 }
                 else
                     this.doOnce = false;
             }
-            
         }
     }
 
