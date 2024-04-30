@@ -58,3 +58,10 @@ function IsInDiamond(x, y, a, b, dl, dc) {
         return false;
     }
 }
+
+function isMobileDevice() {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Patrones para detectar los principales tipos de dispositivos móviles
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+}

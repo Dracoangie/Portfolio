@@ -31,6 +31,14 @@ var Input = {
         pressed: false
     },
 
+    touch: {
+        x: 0,
+        y: 0,
+        down: false,
+        up: false,
+        pressed: false
+    },
+
     keyboard: {
         keyup: {},
         keypressed: {},
@@ -53,6 +61,10 @@ var Input = {
         return this.mouse.pressed;
     },
 
+    IsScreenTouch: function () {
+        return this.touch.pressed;
+    },
+
     PostUpdate: function () {
         // CLEAN KEYBOARD 'KEYDOWN' EVENTS
         for (var property in this.keyboard.keydown) {
@@ -71,6 +83,10 @@ var Input = {
         // CLEAN 'MOUSEDOWN' EVENTS
         this.mouse.down = false;
         this.mouse.up = false;
+
+        // CLEAN 'ScreenTouch' EVENTS
+        this.touch.down = false;
+        this.touch.up = false;
     }
 };
 
@@ -98,6 +114,62 @@ function SetupKeyboardEvents ()
             element.attachEvent(eventName, func);
     }
 }
+
+function SetupTouchEvents(canvas) {
+    canvas.addEventListener('touchstart', function(evnt){TouchStart(canvas,evnt)}, false);
+    //canvas.addEventListener('touchmove', function(evnt){TouchMove(canvas,evnt)}, false);
+    canvas.addEventListener('touchend', TouchEnd, false);
+    //canvas.addEventListener('touchcancel', TouchCancel, false);
+}
+
+function TouchStart(canvas, event) {
+    console.log('Touch click');
+
+    // Verifica que haya al menos un toque registrado
+    if (event.touches.length > 0) {
+        Input.touch.down = true;
+        Input.touch.pressed = true;
+
+        let firstTouch = event.touches[0]; // Obtiene el primer toque
+
+        let rect = canvas.getBoundingClientRect();
+
+        // Calcula la escala del canvas
+        let scaleX = canvas.width / rect.width;   // relación entre el ancho real del canvas y el ancho del elemento DOM
+        let scaleY = canvas.height / rect.height; // relación entre el alto real del canvas y el alto del elemento DOM
+
+        // Ajusta las coordenadas del toque a la escala del canvas
+        Input.touch.x = (firstTouch.clientX - rect.left) * scaleX;
+        Input.touch.y = (firstTouch.clientY - rect.top) * scaleY;
+
+        console.log(Input.touch.x, Input.touch.y);
+    } else {
+        console.log("No touches detected.");
+    }
+}
+
+function TouchEnd(event)
+{
+    Input.touch.up = true;
+    Input.touch.pressed = false;
+}
+
+function TouchMove (canvas,event)
+{    // Obtiene el rectángulo delimitador del canvas
+    
+    console.log(Input.touch.x, Input.touch.y);
+    let rect = canvas.getBoundingClientRect();
+
+    // Calcula la escala del canvas
+    let scaleX = canvas.width / rect.width;   // relación entre el ancho real del canvas y el ancho del elemento DOM
+    let scaleY = canvas.height / rect.height; // relación entre el alto real del canvas y el alto del elemento DOM
+
+    // Ajusta las coordenadas del ratón a la escala del canvas
+    Input.touch.x = (event.clientX - rect.left) * scaleX;
+    Input.touch.y = (event.clientY - rect.top) * scaleY;
+    
+}
+
 
 function SetupMouseEvents (canvas)
 {

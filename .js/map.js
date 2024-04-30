@@ -47,18 +47,34 @@ var map = {
 
     MouseTouch: function()
     {
-        if(Input.IsMousePressed()){
-            if(this.doOnce == false)
-            {
-                this.doOnce = true;
-                Input.mouse.up = true;
-                Input.mouse.pressed = false;
-
-                this.actualNode.checkposition(Input.mouse.x + camera.x,Input.mouse.y + camera.y);
+        if (isMobileDevice()) {
+            if(Input.touch.down){
+                if(this.doOnce == false)
+                {
+                    this.doOnce = true;
+    
+                    this.actualNode.checkposition(Input.touch.x + camera.x,Input.touch.y + camera.y);
+                }
+                else
+                    this.doOnce = false;
             }
-            else
-                this.doOnce = false;
         }
+        else {
+            if(Input.IsMousePressed()){
+                if(this.doOnce == false)
+                {
+                    this.doOnce = true;
+                    Input.mouse.up = true;
+                    Input.mouse.pressed = false;
+    
+                    this.actualNode.checkposition(Input.mouse.x + camera.x,Input.mouse.y + camera.y);
+                }
+                else
+                    this.doOnce = false;
+            }
+            
+        }
+       
     },
 
     changeRoom: function(tag)

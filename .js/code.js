@@ -20,6 +20,7 @@ const controller={
 
         SetupKeyboardEvents();
         SetupMouseEvents(controller.canvas);
+        SetupTouchEvents(controller.canvas);
 
         Start(controller.canvas);
         Loop();

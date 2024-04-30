@@ -18,6 +18,8 @@ class Scene{
         map.Update();
         this.cube.Update();
         camera.Update();
+
+        //console.log(Input.touch.x, Input.touch.y)
     }
     Render(ctx)
     {
