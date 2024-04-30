@@ -48,10 +48,12 @@ var map = {
     MouseTouch: function()
     {
         if (isMobileDevice()) {
-            if(Input.touch.down){
+            if(Input.IsScreenTouch()){
                 if(this.doOnce == false)
                 {
                     this.doOnce = true;
+                    Input.touch.up = true;
+                    Input.touch.pressed = false;
     
                     this.actualNode.checkposition(Input.touch.x + camera.x,Input.touch.y + camera.y);
                 }
@@ -61,6 +63,8 @@ var map = {
         }
         else {
             if(Input.IsMousePressed()){
+                
+        console.log(Input.mouse.x, Input.mouse.y);
                 if(this.doOnce == false)
                 {
                     this.doOnce = true;
