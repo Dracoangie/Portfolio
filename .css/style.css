@@ -6,14 +6,15 @@ canvas {
     width: 100%;
 }
 
-.modal{
+.modal {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #111111bd;
     display: flex;
+    flex-direction: row; /* Coloca .modal_container y .modal_container_der_group en una fila */
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s;
@@ -21,18 +22,17 @@ canvas {
     --transition: transform .8s;
 }
 
-.modal--show{
+.modal--show {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .4s;
     --transform: translateY(0vh);
 }
 
-.modal_container{
+.modal_container {
     margin: auto;
-    width: 60%;
+    width: 40%; /* Ajusta según sea necesario */
     max-width: 600px;
-    max-width: 80%;
     background-color: white;
     border-radius: 6px;
     padding: 3em 2.5em;
@@ -42,22 +42,39 @@ canvas {
     grid-auto-columns: 100%;
     transform: var(--transform);
     transition: var(--transition);
+    order: 1; /* Asegura que esta columna esté a la izquierda */
 }
 
-.modal_title{
+.modal_container_der_group {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos hijos en una columna */
+    gap: 1em; /* Espaciado entre los elementos */
+    order: 2; /* Asegura que esta columna esté a la derecha */
+    /*max-height: 80vh; /* Ajusta el tamaño máximo según sea necesario */
+    overflow-y: auto; /* Añade desplazamiento vertical si es necesario */
+}
+
+.modal_container_der {
+    margin: auto;
+    width: 40%; /* Ajusta según sea necesario */
+    max-width: 600px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: block; /* Asegura que no interfiera con el layout */
+    transform: var(--transform);
+    transition: var(--transition);
+}
+
+.modal_title {
     font-size: 2.5em;
 }
 
-.modal_paragraph{
+.modal_paragraph {
     margin-bottom: 10px;
 }
 
-.modal_img{
-    width: 90%;
-    max-width: 300px;
-}
-
-.modal_close{
+.modal_close {
     text-decoration: none;
     color: #fff;
     background-color: #f26250;
@@ -69,8 +86,7 @@ canvas {
     transition: background-color .3s;
 }
 
-.modal_close:hover{
+.modal_close:hover {
     color: #F26250;
     background-color: #fff;
 }
-
