@@ -103,13 +103,3 @@ function Draw(ctx)
     //Render the scene
     controller.scene.Render(ctx);
 }
-
-
-//----- css connections -----
-
-const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.modal_close');
-
-closeModal.addEventListener('click', (e)=>{
-    modal.classList.remove('modal--show');
-})

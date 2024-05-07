@@ -1,6 +1,6 @@
 var map = {
 
-    Start: function(){
+    Start: function(intGallery, bar){
         this.nodes= {
             bar: new MapNode("bar", 11, 11, [
                 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -14,34 +14,35 @@ var map = {
                 [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1],
                 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                 [1, 1, 1, 1, 1, "room", 1, 1, 1, 1, 1],
-            ], 0, 0),
+            ], 0, 0,bar),
             room: new MapNode("room",5, 5, [
                 [1, 1, "bar", 1, 1],
                 [0, 0, 0, 0, 0],
                 [1, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0],
                 [1, 1, 0, 1, 0]
-            ], 10, 3),
+            ], 10, 3,intGallery),
             cinema: new MapNode("cinema",5, 5, [
                 [0, 1, 1, 1, 1],
                 [0, 0, 1, 0, 1],
                 [1, 0, 0, 0, "bar"],
                 [0, 0, 0, 0, 1],
                 [1, 1, 0, 1, 1]
-            ], 3, -4),
+            ], 3, -4, intGallery),
             artGallery: new MapNode("artGallery",5, 5, [
                 [1, 1, 0, 1, 0],
                 [1, 0, 0, 0, 0],
                 ["bar", 0, 1, 1, 1],
                 [1, 0, 0, 0, 0],
                 [1, 1, 0, 1, 0]
-            ], 3,10),
+            ], 3,10,intGallery),
         };
         this.actualNode =  this.nodes.bar;
         this.actualNode.start();
     },
 
     Update: function(){
+        this.actualNode.updateInteractions();
         this.MouseTouch()
     },
 

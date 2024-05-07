@@ -69,13 +69,13 @@ var player =
 
     AnimationDirector: function(deltaTime){
         
-        if(this.timeAnim > 0.1){
+        if(this.timeAnim > 0.15){
             newframe = true;
             this.timeAnim = 0;
         }
         else newframe = false;
         if(newframe){
-            if(this.posXanim > 4){
+            if(this.posXanim > 3){
                 this.posXanim =0;
             }
             this.posXanim ++;

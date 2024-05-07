@@ -1,5 +1,5 @@
 class MapNode{
-    constructor(tag, width, height, grid, extraX, extraY) {
+    constructor(tag, width, height, grid, extraX, extraY, interactables) {
         this.extraX = extraX;
         this.extraY = extraY;
         this.width = width;
@@ -12,6 +12,7 @@ class MapNode{
         this.changeRoom = null;
         this.tag = tag;
         this.lastNodeTag = null;
+        this.interactables = interactables;
 
         // Inicializando el array multidimensional
         for (let i = 0; i < width; i++) {
@@ -87,6 +88,12 @@ class MapNode{
         return false;
     }
 
+    updateInteractions(){
+        this.interactables.forEach(element => {
+            element.Update();
+        });
+    }
+
     aStar (start, goal, grid) {
         const openSet = [start];
         const cameFrom = new Map();
@@ -158,6 +165,8 @@ class MapNode{
                 }
             }
         }
-
+        this.interactables.forEach(element => {
+            element.Draw(ctx);
+        });
     }
 }

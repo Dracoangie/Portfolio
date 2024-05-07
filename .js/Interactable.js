@@ -1,10 +1,11 @@
 class interactable{
 
-    constructor( x, y, width, height){
+    constructor( x, y, width, height, tag){
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.tag = tag;
  
     }
 
@@ -21,7 +22,18 @@ class interactable{
             {
                 if(isPointInsideSquare(Input.touch.x + camera.x, Input.touch.y + camera.y, this))
                 {
-                    modal.classList.add('modal--show')
+                    switch(tag)
+                    {
+                        case "ArtGallery":
+                            artGallery.classList.add('modal--show');
+                            break;
+                        case "Cinema":
+                            modal.classList.add('modal--show');
+                            break;
+                        case "Room":
+                            modal.classList.add('modal--show');
+                            break;
+                    }
                     Input.touch.up = true;
                     Input.touch.pressed = false;
                     
@@ -38,7 +50,18 @@ class interactable{
                 {
                     if(isPointInsideSquare(Input.mouse.x + camera.x, Input.mouse.y + camera.y, this))
                     {
-                        modal.classList.add('modal--show')
+                        switch(this.tag)
+                        {
+                            case "ArtGallery":
+                                artGallery.classList.add('modal--show');
+                                break;
+                            case "Cinema":
+                                modal.classList.add('modal--show');
+                                break;
+                            case "Room":
+                                modal.classList.add('modal--show');
+                                break;
+                        }
                         Input.mouse.up = true;
                         Input.mouse.pressed = false;
                         
