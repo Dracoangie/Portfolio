@@ -22,18 +22,7 @@ class interactable{
             {
                 if(isPointInsideSquare(Input.touch.x + camera.x, Input.touch.y + camera.y, this))
                 {
-                    switch(tag)
-                    {
-                        case "ArtGallery":
-                            artGallery.classList.add('modal--show');
-                            break;
-                        case "Cinema":
-                            modal.classList.add('modal--show');
-                            break;
-                        case "Room":
-                            modal.classList.add('modal--show');
-                            break;
-                    }
+                    this.InteractionType();
                     Input.touch.up = true;
                     Input.touch.pressed = false;
                     
@@ -50,18 +39,7 @@ class interactable{
                 {
                     if(isPointInsideSquare(Input.mouse.x + camera.x, Input.mouse.y + camera.y, this))
                     {
-                        switch(this.tag)
-                        {
-                            case "ArtGallery":
-                                artGallery.classList.add('modal--show');
-                                break;
-                            case "Cinema":
-                                modal.classList.add('modal--show');
-                                break;
-                            case "Room":
-                                modal.classList.add('modal--show');
-                                break;
-                        }
+                        this.InteractionType();
                         Input.mouse.up = true;
                         Input.mouse.pressed = false;
                         
@@ -71,6 +49,25 @@ class interactable{
                 else
                     this.doOnce = false;
             }
+        }
+    }
+
+    InteractionType()
+    {
+        switch(this.tag)
+        {
+            case "ArtGallery":
+                artGalleryModal.classList.add('modal--show');
+                break;
+            case "Cinema":
+                cinemaModal.classList.add('modal--show');
+                break;
+            case "Room":
+                roomModal.classList.add('modal--show');
+                break;
+            case "Bar":
+                barModal.classList.add('modal--show');
+                break;
         }
     }
 

@@ -1,6 +1,6 @@
 var map = {
 
-    Start: function(intGallery, bar){
+    Start: function(bar, artGallery, room, cinema){
         this.nodes= {
             bar: new MapNode("bar", 11, 11, [
                 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -21,21 +21,21 @@ var map = {
                 [1, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0],
                 [1, 1, 0, 1, 0]
-            ], 10, 3,intGallery),
+            ], 10, 3,room),
             cinema: new MapNode("cinema",5, 5, [
                 [0, 1, 1, 1, 1],
                 [0, 0, 1, 0, 1],
                 [1, 0, 0, 0, "bar"],
                 [0, 0, 0, 0, 1],
                 [1, 1, 0, 1, 1]
-            ], 3, -4, intGallery),
+            ], 3, -4, cinema),
             artGallery: new MapNode("artGallery",5, 5, [
                 [1, 1, 0, 1, 0],
                 [1, 0, 0, 0, 0],
                 ["bar", 0, 1, 1, 1],
                 [1, 0, 0, 0, 0],
                 [1, 1, 0, 1, 0]
-            ], 3,10,intGallery),
+            ], 3,10,artGallery),
         };
         this.actualNode =  this.nodes.bar;
         this.actualNode.start();

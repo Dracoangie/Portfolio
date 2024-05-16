@@ -6,7 +6,7 @@ canvas {
     width: 100%;
 }
 
-.modal, .ArtGallery {
+.bar_modal, .ArtGallery_Modal,.Cinema_Modal,.Room_Modal {
     position: fixed;
     top: 0;
     left: 0;
