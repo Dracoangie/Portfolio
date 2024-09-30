@@ -26,7 +26,7 @@ class MapNode{
         for (let i = 0; i < this.width; i++) {
             for (let j = 0; j < this.height; j++) {
                 this.pos[i][j] = {
-                    x: controller.canvas.width / 2 + (i+ this.extraX) * 32 - (j+ this.extraY) * 32,
+                    x: controller.canvas.width / 2 + (j+ this.extraY) * 32 - (i+ this.extraX) * 32,
                     y: controller.canvas.height / 2 + (j+ this.extraY) * 16 + (i+ this.extraX) * 16
                 };
                 if (this.grid[i][j] === 2) {
