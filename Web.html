@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Ángela Navarro</title>
+  <link rel="stylesheet" href=".css/web_styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a onclick="goToSection(0)">Home</a>
+    <a onclick="goToSection(1)">About me</a>
+    <a onclick="goToSection(2)">Projects</a>
+    <a onclick="goToSection(3)">Gallery</a>
+  </div>
+
+  <!-- Sections -->
+  <div class="container" id="container">
+    <div class="section">
+      <div class="home-content">
+        <h1 class="home-title">Angela Navarro</h1>
+        <div class="home-overlay">PORTFOLIO</div>
+        <p class="home-description">
+          I love design and anything related to art. I approach problems in a rational and pragmatic way.
+        </p>
+      </div>
+        <img src="portfolio_img/03.jpg" alt="Placeholder Image" class="homeImage">
+    </div>
+    <div class="section">
+      <div class="home-content">
+        <div class="top-section">
+          <img src="portfolio_img/angela_cortada.jpg" alt="Imagen">
+          <div class="text-content">
+              <h1>About me</h1>
+              <p>Texto descriptivo debajo del título.</p>
+          </div>
+        </div>
+        <div class="bottom-section">
+          <div class="sub-section">
+              <h2>Experience</h2>
+              <p>Texto descriptivo para la primera columna vertical.</p>
+          </div>
+          <div class="sub-section">
+              <h2>Education</h2>
+              <p>Texto descriptivo para la segunda columna vertical.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">Projects</div>
+    <div class="section">Gallery</div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    let currentIndex = 0;
+
+    // Function to scroll to a section
+    function goToSection(index) {
+      if (index < 0 || index > 4) return; // Ensure index is within bounds
+      currentIndex = index;
+      const offset = index * -100; // Calculate translateX
+      container.style.transform = `translateX(${offset}vw)`;
+    }
+  </script>
+</body>
+</html>
