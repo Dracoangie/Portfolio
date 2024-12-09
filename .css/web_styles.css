@@ -61,6 +61,7 @@ html, body {
     display: flex;
     width: 400vw; /* 5 sections, 100% width each */
     overflow-x: hidden; /* No scrollbars visible */
+    overflow-y: hidden;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -175,10 +176,33 @@ p {
     border-right: none;
 }
 
-
+/* Projects */
 .section:nth-child(3) {
     background-color: #dd2455; 
 }
+
+.project-section {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+.project-section img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+.project-text {
+    flex: 1;
+    padding: 1rem;
+}
+.project-section:nth-child(odd) {
+    flex-direction: row;
+}
+.project-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Gallery*/
 .section:nth-child(4) { 
     background-color: #f39c4a; 
 }
