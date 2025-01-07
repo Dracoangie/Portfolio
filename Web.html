@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Ángela Navarro</title>
-  <link rel="stylesheet" href=".css/web_styles.css">
+  <link rel="stylesheet" href=".css/web_styles.css"
+  ><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+  
+  
 </head>
 <body>
   <!-- Navbar -->
@@ -22,7 +27,7 @@
         <h1 class="home-title">Angela Navarro</h1>
         <div class="home-overlay">PORTFOLIO</div>
         <p class="home-description">
-          I love design and anything related to art. I approach problems in a rational and pragmatic way.
+          Video game developer specialising in Tecnical Art and VFX.
         </p>
       </div>
         <img src="portfolio_img/03-min.jpg" alt="Placeholder Image" class="homeImage">
@@ -33,46 +38,72 @@
           <img src="portfolio_img/angela_cortada.jpg" alt="Imagen">
           <div class="text-content">
             <h1>About me</h1>
-            <p>Texto descriptivo debajo del título.</p>
-          </div>
+            <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
+            <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
+            <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+            </div>
         </div>
         <div class="bottom-section">
           <div class="sub-section">
             <h2>Experience</h2>
-            <p>Texto descriptivo para la primera columna vertical.</p>
+            <h3>Internship - LabCabe</h3>
+            <p>I was mainly involved in mobile game development.</p>
           </div>
           <div class="sub-section">
             <h2>Education</h2>
-            <p>Texto descriptivo para la segunda columna vertical.</p>
+            <h3>Career in Video Game Development - UDIT</h3>
+            <p>2019 - 2024</p>
+            <h3>42 - Fundación Telefónica</h3>
+            <p>2024 - Present</p>
           </div>
         </div>
       </div>
     </div>    
     <div class="section">
-      <div class="home-content">
-        <h1>Projects</h1>
-        <div class="project-section">
-          <img src="https://via.placeholder.com/300" alt="Imagen 1">
-          <div class="project-text">
-            <h2>Sección 1</h2>
-            <p>Este es el texto descriptivo de la primera sección. Puedes personalizarlo con cualquier contenido que desees.</p>
+      <section class="cloneable">
+        <div data-tabs="wrapper" class="tab-layout">
+          <div class="tab-layout-col">
+            <div class="tab-layout-container">
+              <div class="tab-container">
+                <div class="tab-container-top">
+                  <h1 class="tab-layout-heading">Projects</h1>
+                  <div data-flip-button="wrap" data-tabs="nav" class="filter-bar"><button data-tabs="button" data-flip-button="button" class="filter-button active">
+                      <div class="filter-button__p">Shapes</div>
+                      <div data-flip-button="bg" class="tab-button__bg"></div>
+                    </button><button data-tabs="button" data-flip-button="button" class="filter-button">
+                      <div class="filter-button__p">Depth</div>
+                    </button><button data-tabs="button" data-flip-button="button" class="filter-button">
+                      <div class="filter-button__p">Layers</div>
+                    </button></div>
+                </div>
+                <div class="tab-container-bottom">
+                  <div data-tabs="content-wrap" class="tab-content-wrap">
+                    <div data-tabs="content-item" class="tab-content-item active">
+                      <h2 data-tabs-fade="" class="tab-content__heading">Shifting Perspectives</h2>
+                      <p data-tabs-fade="" class="content-p opacity--80">A dynamic exploration of structure, balance, and creative symmetry.</p>
+                    </div>
+                    <div data-tabs="content-item" class="tab-content-item">
+                      <h2 data-tabs-fade="" class="tab-content__heading">Fragments of Motion</h2>
+                      <p data-tabs-fade="" class="content-p opacity--80">Where design meets depth—an abstract dance of light and form.</p>
+                    </div>
+                    <div data-tabs="content-item" class="tab-content-item">
+                      <h2 data-tabs-fade="" class="tab-content__heading">Echoes in Orange</h2>
+                      <p data-tabs-fade="" class="content-p opacity--80">A journey through layered geometry and endless possibilities.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-layout-col">
+            <div data-tabs="visual-wrap" class="tab-visual-wrap">
+              <div data-tabs="visual-item" class="tab-visual-item active"><img src="https://cdn.prod.website-files.com/67726722d415dc401ae23cf6/677289e14dd4dbca1d8e5930_philip-oroni-IANBrm46bF0-unsplash%20(2).avif" loading="lazy" class="tab-image"></div>
+              <div data-tabs="visual-item" class="tab-visual-item"><img src="https://cdn.prod.website-files.com/67726722d415dc401ae23cf6/677289e19e4d013c6a4c5a1b_philip-oroni-Zx_G3LpNnV4-unsplash%20(1).avif" loading="lazy" class="tab-image"></div>
+              <div data-tabs="visual-item" class="tab-visual-item"><img src="https://cdn.prod.website-files.com/67726722d415dc401ae23cf6/677289e1c88b5b4c14d1e6fd_philip-oroni-h9N7bm-HRCo-unsplash.avif" loading="lazy" class="tab-image"></div>
+            </div>
           </div>
         </div>
-        <div class="project-section">
-          <img src="https://via.placeholder.com/300" alt="Imagen 2">
-          <div class="project-text">
-            <h2>Sección 2</h2>
-            <p>Este es el texto descriptivo de la segunda sección. Aquí también puedes añadir más información relevante.</p>
-          </div>
-        </div>
-        <div class="project-section">
-          <img src="https://via.placeholder.com/300" alt="Imagen 3">
-          <div class="project-text">
-            <h2>Sección 3</h2>
-            <p>Este es el texto descriptivo de la segunda sección. Aquí también puedes añadir más información relevante.</p>
-        </div>
-      </div>
-      </div>
+      </section>
     </div>
     <div class="section">Gallery</div>
   </div>
@@ -83,11 +114,146 @@
 
     // Function to scroll to a section
     function goToSection(index) {
+      console.log(gsap.registeredPlugins);
       if (index < 0 || index > 4) return; // Ensure index is within bounds
       currentIndex = index;
       const offset = index * -100; // Calculate translateX
       container.style.transform = `translateX(${offset}vw)`;
     }
+
+    gsap.registerPlugin(CustomEase, Flip )
+
+    CustomEase.create("osmo-ease", "0.625, 0.05, 0, 1")
+
+    gsap.defaults({
+      ease: "osmo-ease",
+      duration: 0.8,
+    });
+
+    function initFlipButtons() {
+      let wrappers = document.querySelectorAll('[data-flip-button="wrap"]');
+      
+      wrappers.forEach((wrapper) => {
+        let buttons = wrapper.querySelectorAll('[data-flip-button="button"]');
+        let bg = wrapper.querySelector('[data-flip-button="bg"]');
+        
+        buttons.forEach(function (button) {
+          // Handle mouse enter
+          button.addEventListener("mouseenter", function () {
+            const state = Flip.getState(bg);
+            this.appendChild(bg);
+            Flip.from(state, {
+              duration: 0.4,
+            });
+          });
+
+          // Handle focus for keyboard navigation
+          button.addEventListener("focus", function () {
+            const state = Flip.getState(bg);
+            this.appendChild(bg);
+            Flip.from(state, {
+              duration: 0.4,
+            });
+          });
+
+          // Handle mouse leave
+          button.addEventListener("mouseleave", function () {
+            const state = Flip.getState(bg);
+            const activeLink = wrapper.querySelector(".active");
+            activeLink.appendChild(bg);
+            Flip.from(state, {
+              duration: 0.4,
+            });
+          });
+
+          // Handle blur to reset background for keyboard navigation
+          button.addEventListener("blur", function () {
+            const state = Flip.getState(bg);
+            const activeLink = wrapper.querySelector(".active");
+            activeLink.appendChild(bg);
+            Flip.from(state, {
+              duration: 0.4,
+            });
+          });
+        });
+      });
+    }
+
+    function initTabSystem(){
+      let wrappers = document.querySelectorAll('[data-tabs="wrapper"]')
+      
+      wrappers.forEach((wrapper) => {
+        let nav = wrapper.querySelector('[data-tabs="nav"]')
+        let buttons = nav.querySelectorAll('[data-tabs="button"]')
+        let contentWrap = wrapper.querySelector('[data-tabs="content-wrap"]')
+        let contentItems = contentWrap.querySelectorAll('[data-tabs="content-item"]')
+        let visualWrap = wrapper.querySelector('[data-tabs="visual-wrap"]')
+        let visualItems = visualWrap.querySelectorAll('[data-tabs="visual-item"]')
+
+        let activeButton = buttons[0];
+        let activeContent = contentItems[0];
+        let activeVisual = visualItems[0];
+        let isAnimating = false;
+
+        function switchTab(index, initial = false) {
+          if (!initial && (isAnimating || buttons[index] === activeButton)) return; // ignore click if the clicked button is already active 
+          isAnimating = true; // keep track of whether or not one is moving, to prevent overlap
+
+          const outgoingContent = activeContent;
+          const incomingContent = contentItems[index];
+          const outgoingVisual = activeVisual;
+          const incomingVisual = visualItems[index];
+
+          let outgoingLines = outgoingContent.querySelectorAll("[data-tabs-fade]") || [];
+          let incomingLines = incomingContent.querySelectorAll("[data-tabs-fade]");
+
+          const timeline = gsap.timeline({
+            defaults:{
+              ease:"power3.inOut"
+            },
+            onComplete: () => {
+              if(!initial){
+                outgoingContent && outgoingContent.classList.remove("active");
+                outgoingVisual && outgoingVisual.classList.remove("active");            
+              }
+              activeContent = incomingContent;
+              activeVisual = incomingVisual;
+              isAnimating = false;
+            },
+          });
+
+          incomingContent.classList.add("active");
+          incomingVisual.classList.add("active");
+
+          timeline
+            .to(outgoingLines, { y: "-2em", autoAlpha:0 }, 0)
+            .to(outgoingVisual, { autoAlpha: 0, xPercent: 3 }, 0)
+            .fromTo(incomingLines, { y: "2em", autoAlpha:0 }, { y: "0em", autoAlpha:1, stagger: 0.075 }, 0.4)
+            .fromTo(incomingVisual, { autoAlpha: 0, xPercent: 3 }, { autoAlpha: 1, xPercent: 0 }, "<");
+
+          activeButton && activeButton.classList.remove("active");
+          buttons[index].classList.add("active");
+          activeButton = buttons[index];
+        }
+
+        switchTab(0, true); // on page load
+    
+        buttons.forEach((button, i) => {
+          button.addEventListener("click", () => switchTab(i)); 
+        });
+
+        contentItems[0].classList.add("active");
+        visualItems[0].classList.add("active");
+        buttons[0].classList.add("active");    
+        
+      })
+      
+    }
+
+    document.addEventListener("DOMContentLoaded", () =>{
+      initTabSystem()
+      initFlipButtons()
+    })
   </script>
 </body>
 </html>

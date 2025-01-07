@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .carousel-text {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            background: #121212;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .carousel-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .carousel-arrow.left {
+            left: 10px;
+        }
+        .carousel-arrow.right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-images">
+			<img src="portfolio_img/angela.jpg" alt="Imagen 1">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 2">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 3">
+		</div>
+        <button class="carousel-arrow left">&#9664;</button>
+        <button class="carousel-arrow right">&#9654;</button>
+    </div>
+    <div class="carousel-text">Texto de la Imagen 1</div>
+
+    <script>
+        const images = document.querySelectorAll('.carousel-images img');
+        const carouselImages = document.querySelector('.carousel-images');
+        const carouselText = document.querySelector('.carousel-text');
+        const leftArrow = document.querySelector('.carousel-arrow.left');
+        const rightArrow = document.querySelector('.carousel-arrow.right');
+
+        const texts = [
+            "Texto de la Imagen 1",
+            "Texto de la Imagen 2",
+            "Texto de la Imagen 3"
+        ];
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carouselText.style.opacity = 0; // Start fade out
+            setTimeout(() => {
+                carouselText.textContent = texts[currentIndex]; // Change text
+                carouselText.style.opacity = 1; // Fade in
+            }, 500); // Match the transition duration
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateCarousel();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
