@@ -18,8 +18,8 @@
         }
         .carousel {
             position: relative;
-            width: 80%;
-            max-width: 600px;
+            width: 60%;
+            max-width: 500px;
             overflow: hidden;
             border-radius: 15px;
             background: #1e1e1e;
@@ -44,36 +44,39 @@
         }
         .carousel-arrow {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            color: #e0e0e0;
-            border: none;
-            padding: 10px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
             cursor: pointer;
             font-size: 20px;
-            border-radius: 50%;
+            z-index: 2;
+            background: transparent;
             transition: background 0.3s ease;
         }
-        .carousel-arrow:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
         .carousel-arrow.left {
-            left: 10px;
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
         .carousel-arrow.right {
-            right: 10px;
+            right: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+        }
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
 <body>
     <div class="carousel">
+        <button class="carousel-arrow left">&#9664;</button>
         <div class="carousel-images">
-			<img src="portfolio_img/angela.jpg" alt="Imagen 1">
+            <img src="portfolio_img/angela.jpg" alt="Imagen 1">
             <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 2">
             <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 3">
-		</div>
-        <button class="carousel-arrow left">&#9664;</button>
+        </div>
         <button class="carousel-arrow right">&#9654;</button>
     </div>
     <div class="carousel-text">Texto de la Imagen 1</div>
