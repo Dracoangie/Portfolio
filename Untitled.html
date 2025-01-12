@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #121212;
+            background-color: #282828;
             color: #e0e0e0;
         }
         .carousel {
@@ -22,7 +22,6 @@
             max-width: 500px;
             overflow: hidden;
             border-radius: 15px;
-            background: #1e1e1e;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
         .carousel-images {
@@ -38,7 +37,6 @@
             text-align: center;
             padding: 10px;
             font-size: 18px;
-            background: #121212;
             opacity: 1;
             transition: opacity 0.5s ease;
         }
@@ -58,14 +56,15 @@
         }
         .carousel-arrow.left {
             left: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
         .carousel-arrow.right {
             right: 0;
-            background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
         }
-        .carousel-arrow:hover {
-            background: rgba(0, 0, 0, 0.7);
+        .carousel-arrow.left:hover {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0));
+        }
+        .carousel-arrow.right:hover {
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
         }
     </style>
 </head>
