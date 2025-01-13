@@ -105,155 +105,88 @@
         </div>
       </section>
     </div>
-    <div class="section">Gallery</div>
+    <div class="section">
+      <header>Gallery</header>
+      <div class="carousel-container">
+        <div class="carousel">
+          <button class="carousel-arrow left">&#9664;</button>
+          <div class="carousel-images">
+            <img src="portfolio_img/angela.jpg" alt="Imagen 1">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 2">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 3">
+          </div>
+          <button class="carousel-arrow right">&#9654;</button>
+          <div class="carousel-dots">
+            <button class="active" data-index="0"></button>
+            <button data-index="1"></button>
+            <button data-index="2"></button>
+          </div>
+        </div>
+        <div class="carousel-text">Texto de la Imagen 1</div>
+      </div>
+    </div>
   </div>
 
   <script>
     const container = document.getElementById('container');
-    let currentIndex = 0;
+    let currentIndexBar = 0;
 
     // Function to scroll to a section
     function goToSection(index) {
       console.log(gsap.registeredPlugins);
       if (index < 0 || index > 4) return; // Ensure index is within bounds
-      currentIndex = index;
+      currentIndexBar = index;
       const offset = index * -100; // Calculate translateX
       container.style.transform = `translateX(${offset}vw)`;
     }
 
-    gsap.registerPlugin(CustomEase, Flip )
+    const carouselImages = document.querySelector('.carousel-images');
+    const carouselText = document.querySelector('.carousel-text');
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+    const dots = document.querySelectorAll('.carousel-dots button');
 
-    CustomEase.create("osmo-ease", "0.625, 0.05, 0, 1")
+    const images = [
+        "portfolio_img/angela.jpg",
+        "portfolio_img/angela_cortada.jpg",
+        "portfolio_img/angela_cortada.jpg"
+    ];
 
-    gsap.defaults({
-      ease: "osmo-ease",
-      duration: 0.8,
+    const texts = [
+        "Texto de la Imagen 1",
+        "Texto de la Imagen 2",
+        "Texto de la Imagen 3"
+    ];
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+        carouselText.style.opacity = 0;
+        setTimeout(() => {
+            carouselText.textContent = texts[currentIndex];
+            carouselText.style.opacity = 1;
+        }, 500);
+    }
+
+    leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : texts.length - 1;
+        updateCarousel();
     });
 
-    function initFlipButtons() {
-      let wrappers = document.querySelectorAll('[data-flip-button="wrap"]');
-      
-      wrappers.forEach((wrapper) => {
-        let buttons = wrapper.querySelectorAll('[data-flip-button="button"]');
-        let bg = wrapper.querySelector('[data-flip-button="bg"]');
-        
-        buttons.forEach(function (button) {
-          // Handle mouse enter
-          button.addEventListener("mouseenter", function () {
-            const state = Flip.getState(bg);
-            this.appendChild(bg);
-            Flip.from(state, {
-              duration: 0.4,
-            });
-          });
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex < texts.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
 
-          // Handle focus for keyboard navigation
-          button.addEventListener("focus", function () {
-            const state = Flip.getState(bg);
-            this.appendChild(bg);
-            Flip.from(state, {
-              duration: 0.4,
-            });
-          });
-
-          // Handle mouse leave
-          button.addEventListener("mouseleave", function () {
-            const state = Flip.getState(bg);
-            const activeLink = wrapper.querySelector(".active");
-            activeLink.appendChild(bg);
-            Flip.from(state, {
-              duration: 0.4,
-            });
-          });
-
-          // Handle blur to reset background for keyboard navigation
-          button.addEventListener("blur", function () {
-            const state = Flip.getState(bg);
-            const activeLink = wrapper.querySelector(".active");
-            activeLink.appendChild(bg);
-            Flip.from(state, {
-              duration: 0.4,
-            });
-          });
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
         });
-      });
-    }
-
-    function initTabSystem(){
-      let wrappers = document.querySelectorAll('[data-tabs="wrapper"]')
-      
-      wrappers.forEach((wrapper) => {
-        let nav = wrapper.querySelector('[data-tabs="nav"]')
-        let buttons = nav.querySelectorAll('[data-tabs="button"]')
-        let contentWrap = wrapper.querySelector('[data-tabs="content-wrap"]')
-        let contentItems = contentWrap.querySelectorAll('[data-tabs="content-item"]')
-        let visualWrap = wrapper.querySelector('[data-tabs="visual-wrap"]')
-        let visualItems = visualWrap.querySelectorAll('[data-tabs="visual-item"]')
-
-        let activeButton = buttons[0];
-        let activeContent = contentItems[0];
-        let activeVisual = visualItems[0];
-        let isAnimating = false;
-
-        function switchTab(index, initial = false) {
-          if (!initial && (isAnimating || buttons[index] === activeButton)) return; // ignore click if the clicked button is already active 
-          isAnimating = true; // keep track of whether or not one is moving, to prevent overlap
-
-          const outgoingContent = activeContent;
-          const incomingContent = contentItems[index];
-          const outgoingVisual = activeVisual;
-          const incomingVisual = visualItems[index];
-
-          let outgoingLines = outgoingContent.querySelectorAll("[data-tabs-fade]") || [];
-          let incomingLines = incomingContent.querySelectorAll("[data-tabs-fade]");
-
-          const timeline = gsap.timeline({
-            defaults:{
-              ease:"power3.inOut"
-            },
-            onComplete: () => {
-              if(!initial){
-                outgoingContent && outgoingContent.classList.remove("active");
-                outgoingVisual && outgoingVisual.classList.remove("active");            
-              }
-              activeContent = incomingContent;
-              activeVisual = incomingVisual;
-              isAnimating = false;
-            },
-          });
-
-          incomingContent.classList.add("active");
-          incomingVisual.classList.add("active");
-
-          timeline
-            .to(outgoingLines, { y: "-2em", autoAlpha:0 }, 0)
-            .to(outgoingVisual, { autoAlpha: 0, xPercent: 3 }, 0)
-            .fromTo(incomingLines, { y: "2em", autoAlpha:0 }, { y: "0em", autoAlpha:1, stagger: 0.075 }, 0.4)
-            .fromTo(incomingVisual, { autoAlpha: 0, xPercent: 3 }, { autoAlpha: 1, xPercent: 0 }, "<");
-
-          activeButton && activeButton.classList.remove("active");
-          buttons[index].classList.add("active");
-          activeButton = buttons[index];
-        }
-
-        switchTab(0, true); // on page load
-    
-        buttons.forEach((button, i) => {
-          button.addEventListener("click", () => switchTab(i)); 
-        });
-
-        contentItems[0].classList.add("active");
-        visualItems[0].classList.add("active");
-        buttons[0].classList.add("active");    
-        
-      })
-      
-    }
-
-    document.addEventListener("DOMContentLoaded", () =>{
-      initTabSystem()
-      initFlipButtons()
-    })
+    });
   </script>
 </body>
 </html>

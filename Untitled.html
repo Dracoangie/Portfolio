@@ -9,19 +9,35 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #282828;
             color: #e0e0e0;
+            box-sizing: border-box;
+        }
+        header {
+            width: 100%;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            padding: 20px 0;
+            margin-bottom: 10px;
+        }
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1000px;
+            flex-grow: 1;
         }
         .carousel {
             position: relative;
             width: 60%;
-            max-width: 500px;
+            max-width: 600px;
             overflow: hidden;
-            border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
         .carousel-images {
@@ -30,13 +46,18 @@
         }
         .carousel-images img {
             width: 100%;
+            height: auto;
             flex-shrink: 0;
         }
         .carousel-text {
-            width: 100%;
-            text-align: center;
-            padding: 10px;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             font-size: 18px;
+            text-align: center;
             opacity: 1;
             transition: opacity 0.5s ease;
         }
@@ -52,7 +73,9 @@
             font-size: 20px;
             z-index: 2;
             background: transparent;
+            border: none;
             transition: background 0.3s ease;
+            outline: none;
         }
         .carousel-arrow.left {
             left: 0;
@@ -60,32 +83,84 @@
         .carousel-arrow.right {
             right: 0;
         }
-        .carousel-arrow.left:hover {
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0));
+        .carousel-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
-        .carousel-arrow.right:hover {
-            background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            position: relative;
+            top: -10px;
+        }
+        .carousel-dots button {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border-radius: 50%;
+            border: none;
+            background: #555;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .carousel-dots button.active {
+            background: #fff;
+        }
+        @media (max-width: 700px) {
+            .carousel-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .carousel {
+                width: 90%;
+                max-width: 90%;
+                height: 160%;
+                max-height: 160%;
+                aspect-ratio: 10 / 16;
+            }
+            .carousel-images img {
+                object-fit: contain;
+            }
+            .carousel-text {
+                width: 100%;
+                margin-top: 0px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="carousel">
-        <button class="carousel-arrow left">&#9664;</button>
-        <div class="carousel-images">
-            <img src="portfolio_img/angela.jpg" alt="Imagen 1">
-            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 2">
-            <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 3">
+    <header>Gallery</header>
+    <div class="carousel-container">
+        <div class="carousel">
+            <button class="carousel-arrow left">&#9664;</button>
+            <div class="carousel-images">
+                <img src="portfolio_img/angela.jpg" alt="Imagen 1">
+                <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 2">
+                <img src="portfolio_img/angela_cortada.jpg" alt="Imagen 3">
+            </div>
+            <button class="carousel-arrow right">&#9654;</button>
+            <div class="carousel-dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+                <button data-index="2"></button>
+            </div>
         </div>
-        <button class="carousel-arrow right">&#9654;</button>
+        <div class="carousel-text">Texto de la Imagen 1</div>
     </div>
-    <div class="carousel-text">Texto de la Imagen 1</div>
 
     <script>
-        const images = document.querySelectorAll('.carousel-images img');
         const carouselImages = document.querySelector('.carousel-images');
         const carouselText = document.querySelector('.carousel-text');
         const leftArrow = document.querySelector('.carousel-arrow.left');
         const rightArrow = document.querySelector('.carousel-arrow.right');
+        const dots = document.querySelectorAll('.carousel-dots button');
+
+        const images = [
+            "portfolio_img/angela.jpg",
+            "portfolio_img/angela_cortada.jpg",
+            "portfolio_img/angela_cortada.jpg"
+        ];
 
         const texts = [
             "Texto de la Imagen 1",
@@ -97,21 +172,30 @@
 
         function updateCarousel() {
             carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-            carouselText.style.opacity = 0; // Start fade out
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+            carouselText.style.opacity = 0;
             setTimeout(() => {
-                carouselText.textContent = texts[currentIndex]; // Change text
-                carouselText.style.opacity = 1; // Fade in
-            }, 500); // Match the transition duration
+                carouselText.textContent = texts[currentIndex];
+                carouselText.style.opacity = 1;
+            }, 500);
         }
 
         leftArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : texts.length - 1;
             updateCarousel();
         });
 
         rightArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            currentIndex = (currentIndex < texts.length - 1) ? currentIndex + 1 : 0;
             updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
         });
     </script>
 </body>
