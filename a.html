@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #262626;
+            color: #BFB4AE;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .boduAboutme {
+            flex: 2;
+            text-align: left;
+            width: 100%;
+        }
+
+        .boduAboutme .logo {
+            font-size: 32px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: white;
+            margin: 0;
+        }
+
+        .boduAboutme hr {
+            border: none;
+            height: 5px;
+            background-color: #e0e0e0;
+            opacity: 0.2;
+            margin: 20px 0;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .line {
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 10px;
+            border-top: 5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            transition: color 0.3s ease;
+            margin: 0;
+        }
+
+        footer p:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="image-container">
+            <img src="portfolio_img/angela_editada.png" alt="Placeholder Image">
+        </div>
+        <div class="boduAboutme">
+            <header>
+                <h1 class="logo">About Me</h1>
+                <hr>
+            </header>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod nisl nec felis congue, vel luctus turpis varius. Suspendisse potenti. Vivamus placerat enim id justo euismod, non vulputate libero volutpat.</p>
+                <div class="line"></div>
+            </div>
+            <footer>
+                <p>www.reallygreatsite.com</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

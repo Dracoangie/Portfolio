@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Collage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .collage {
+            display: grid;
+            grid-template-areas:
+                "a b c"
+                "d e f"
+                "g h i";
+            gap: 10px;
+            width: 90%;
+            height: 90%;
+        }
+
+        .collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .collage div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .item-a { grid-area: a; }
+        .item-b { grid-area: b; }
+        .item-c { grid-area: c; }
+        .item-d { grid-area: d; }
+        .item-e { grid-area: e; }
+        .item-f { grid-area: f; }
+        .item-g { grid-area: g; }
+        .item-h { grid-area: h; }
+        .item-i { grid-area: i; }
+    </style>
+</head>
+<body>
+    <div class="collage">
+        <div class="item-a"><img src="portfolio_img/angela_editada.png" alt="Image 1"></div>
+        <div class="item-b"><img src="portfolio_img/angela_editada.jpg" alt="Image 2"></div>
+        <div class="item-c"><img src="portfolio_img/angela_cortada.jpg" alt="Image 3"></div>
+        <div class="item-d"><img src="portfolio_img/angela_editada.png" alt="Image 4"></div>
+        <div class="item-e"><img src="portfolio_img/03-min.jpg" alt="Image 5"></div>
+        <div class="item-f"><img src="portfolio_img/angela_editada.jpg" alt="Image 6"></div>
+        <div class="item-g"><img src="portfolio_img/03-min.jpg" alt="Image 7"></div>
+        <div class="item-h"><img src="portfolio_img/angela_editada.png" alt="Image 8"></div>
+        <div class="item-i"><img src="portfolio_img/03-min.jpg" alt="Image 9"></div>
+    </div>
+</body>
+</html>
