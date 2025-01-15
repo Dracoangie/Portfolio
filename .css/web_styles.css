@@ -334,7 +334,7 @@ footer p:hover {
   background: linear-gradient(to bottom, #262626 92%, #BFBFBF 10%); 
   background: #262626 ;
   */
-  background: linear-gradient(to bottom, #BFBFBF 70%, #262626 10%, #BFBFBF 5%); 
+  background: linear-gradient(to bottom, #BFBFBF 70%, #262626 10%); 
   color: #BFB4AE;
   display: flex;
   justify-content: center;
