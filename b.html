@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Collage</title>
+    <title>Interactive Collage</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
+        
+        .section {
+            background-color: #262626;
+            color: #BFB4AE;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,9 +21,27 @@
             height: 100vh;
             overflow: hidden;
             font-family: Arial, sans-serif;
+            flex-direction: column;
         }
 
-        .collage {
+        .Gallerylogo h1 {
+            font-size: 32px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #BFB4AE;
+            margin-top: 20px;
+        }
+
+        .Gallerylogo hr {
+            border: none;
+            height: 5px;
+            background-color: #e0e0e0;
+            opacity: 0.2;
+            margin-bottom: 20px;
+            color: #BFB4AE;
+        }
+
+        .Gallerycollage {
             display: grid;
             grid-template-areas:
                 "a b c"
@@ -29,44 +49,97 @@
                 "g h i";
             gap: 10px;
             width: 90%;
-            height: 90%;
+            height: 80%;
         }
 
-        .collage img {
+        .Gallerycollage div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+        }
+
+        .Gallerycollage div:hover {
+            transform: scale(1.5);
+            z-index: 3;
+        }
+
+        .Gallerycollage img,
+        .Gallerycollage video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
         }
 
-        .collage div {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
+        .Gallerycollage video {
+            display: none;
         }
-
-        .item-a { grid-area: a; }
-        .item-b { grid-area: b; }
-        .item-c { grid-area: c; }
-        .item-d { grid-area: d; }
-        .item-e { grid-area: e; }
-        .item-f { grid-area: f; }
-        .item-g { grid-area: g; }
-        .item-h { grid-area: h; }
-        .item-i { grid-area: i; }
     </style>
 </head>
 <body>
-    <div class="collage">
-        <div class="item-a"><img src="portfolio_img/angela_editada.png" alt="Image 1"></div>
-        <div class="item-b"><img src="portfolio_img/angela_editada.jpg" alt="Image 2"></div>
-        <div class="item-c"><img src="portfolio_img/angela_cortada.jpg" alt="Image 3"></div>
-        <div class="item-d"><img src="portfolio_img/angela_editada.png" alt="Image 4"></div>
-        <div class="item-e"><img src="portfolio_img/03-min.jpg" alt="Image 5"></div>
-        <div class="item-f"><img src="portfolio_img/angela_editada.jpg" alt="Image 6"></div>
-        <div class="item-g"><img src="portfolio_img/03-min.jpg" alt="Image 7"></div>
-        <div class="item-h"><img src="portfolio_img/angela_editada.png" alt="Image 8"></div>
-        <div class="item-i"><img src="portfolio_img/03-min.jpg" alt="Image 9"></div>
+    <div class="section">
+        <header class="Gallerylogo">
+            <h1>Gallery</h1>
+            <hr>
+        </header>
+        <div class="Gallerycollage">
+            <div class="item-a">
+                <img src="portfolio_img/angela_editada.png" alt="Image 1">
+                <video src="portfolio_video/video1.mp4" muted loop></video>
+            </div>
+            <div class="item-b">
+                <img src="portfolio_img/angela_editada.jpg" alt="Image 2">
+                <video src="portfolio_video/video2.mp4" muted loop></video>
+            </div>
+            <div class="item-c">
+                <img src="portfolio_img/angela_cortada.jpg" alt="Image 3">
+                <video src="portfolio_video/video3.mp4" muted loop></video>
+            </div>
+            <div class="item-d">
+                <img src="portfolio_img/angela_editada.png" alt="Image 4">
+                <video src="portfolio_video/video4.mp4" muted loop></video>
+            </div>
+            <div class="item-e">
+                <img src="portfolio_img/03-min.jpg" alt="Image 5">
+                <video src="portfolio_video/video5.mp4" muted loop></video>
+            </div>
+            <div class="item-f">
+                <img src="portfolio_img/angela_editada.jpg" alt="Image 6">
+                <video src="portfolio_video/video6.mp4" muted loop></video>
+            </div>
+            <div class="item-g">
+                <img src="portfolio_img/03-min.jpg" alt="Image 7">
+                <video src="portfolio_video/video7.mp4" muted loop></video>
+            </div>
+            <div class="item-h">
+                <img src="portfolio_img/angela_editada.png" alt="Image 8">
+                <video src="portfolio_video/video8.mp4" muted loop></video>
+            </div>
+            <div class="item-i">
+                <img src="portfolio_img/03-min.jpg" alt="Image 9">
+                <video src="portfolio_video/video9.mp4" muted loop></video>
+            </div>
+        </div>
     </div>
+    <script>
+        document.querySelectorAll('.Gallerycollage div').forEach(item => {
+            const img = item.querySelector('img');
+            const video = item.querySelector('video');
+
+            item.addEventListener('mouseover', () => {
+                img.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+            });
+
+            item.addEventListener('mouseout', () => {
+                video.style.display = 'none';
+                img.style.display = 'block';
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+    </script>
 </body>
 </html>
