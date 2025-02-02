@@ -32,7 +32,7 @@ html, body {
     color: white;
     margin: 0 1rem;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     transition: font-size 0.3s ease;
     cursor: pointer;
@@ -75,15 +75,15 @@ html, body {
 }
 
 .homeImage {
-    width: 50%; /* Set width */
-    height: auto; /* Maintain aspect ratio */
+    width: 50%;
+    height: auto;
     border-radius: 10px;
-    object-fit: cover; /* Ensures image fits the box */
+    object-fit: cover;
 }
 
 
 .home-title {
-    font-size: 6vw; /* Escala con el ancho de la pantalla */
+    font-size: 6vw;
     font-weight: bold;
     color: #fff;
     position: relative;
@@ -91,7 +91,7 @@ html, body {
 }
 
 .home-overlay {
-    font-size: 8vw; /* Escala con el ancho de la pantalla */
+    font-size: 8vw;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.1);
     position: absolute;
@@ -104,6 +104,30 @@ html, body {
 .home-description {
     position: relative;
     margin: 8%;
+}
+
+@media (max-width: 768px) {
+
+  /* Home */
+  .section:nth-child(1) {
+      flex-direction: column;
+      justify-content: center;
+  }
+  .homeImage {
+    max-height: 400px ;
+    max-width: 400px ;
+    width: 80% ;
+    bottom: 0;
+  }
+  .home-title {
+    font-size: 7.5vw;
+  }
+    .home-content {
+      font-size: 5.5vw;
+  }
+  .home-overlay { 
+    font-size: 12vw;
+  }
 }
 
 /* About me*/
@@ -122,7 +146,6 @@ html, body {
 .section.about-me .bottom-section .sub-section:hover {
     transform: scale(1.1); 
 }
-
 
 /* Resto del código original */
 .section:nth-child(2) { 
@@ -190,7 +213,7 @@ p {
   background: linear-gradient(to bottom, #262626 92%, #BFBFBF 10%); 
   background: #262626 ;
   */
-  background: linear-gradient(to bottom, #262626 70%, #BFBFBF 10%); 
+  background: #262626;
   color: #BFB4AE;
   display: flex;
   justify-content: center;
@@ -294,10 +317,8 @@ footer p:hover {
 
 
 
-@media (max-width: 1000px) {        
-  .section:nth-child(3) {
-    background: linear-gradient(to bottom, #262626 55%, #BFBFBF 10%); 
-  }
+@media (max-width: 1000px)
+{
   .galleryProjects {
       flex-direction: column;
       align-items: center;
@@ -334,7 +355,7 @@ footer p:hover {
   background: linear-gradient(to bottom, #262626 92%, #BFBFBF 10%); 
   background: #262626 ;
   */
-  background: linear-gradient(to bottom, #BFBFBF 70%, #262626 10%); 
+  background: #262626; 
   color: #BFB4AE;
   display: flex;
   justify-content: center;
