@@ -8,7 +8,7 @@
   ><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
-  
+  <link rel="icon" type="image/png" href="portfolio_img/icon_me_circle.png">
   
 </head>
 <body>
@@ -16,14 +16,15 @@
   <div class="navbar">
     <a onclick="goToSection(0)">Home</a>
     <a onclick="goToSection(1)">About me</a>
-    <a onclick="goToSection(2)">Projects</a>
-    <a onclick="goToSection(3)">Gallery</a>
+    <a onclick="goToSection(2)">Experience</a>
+    <a onclick="goToSection(3)">Projects</a>
+    <a onclick="goToSection(4)">Gallery</a>
   </div>
 
   <!-- Sections -->
   <div class="container" id="container">
+    <!-- home -->
     <div class="section">
-      <!-- home -->
       <div class="home-content">
         <h1 class="home-title">Angela Navarro</h1>
         <div class="home-overlay">PORTFOLIO</div>
@@ -35,32 +36,30 @@
     </div>
     <!-- about-me -->
     <div class="section about-me">
-      <!--<div class="home-content">
-        <div class="top-section">
-          <img src="portfolio_img/angela_cortada.jpg" alt="Imagen">
-          <div class="text-content">
-            <h1>About me</h1>
-            <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
-            <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
-            <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+      <div class="mecontainer">
+        <div class="meleft">
+            <img src="portfolio_img/icon_me.gif" alt="About Me GIF">
+        </div>
+        <div class="meright">
+            <h1>About Me</h1>
+            <hr>
+            <div class="mecontent">
+                <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
+                <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
+                <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
             </div>
+            <div class="line"></div>
+            <footer>
+                <p><a href="mailto:anavaro.sala@gmail.com">anavaro.sala@gmail.com</a></p>
+                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">linkedin.com/in/angela-navarro-sala/</a></p>
+                <p><a href="https://github.com/Dracoangie" target="_blank">github.com/Dracoangie</a></p>
+            </footer>
         </div>
-        <div class="bottom-section">
-          <div class="sub-section">
-            <h2>Experience</h2>
-            <h3>Internship - LabCabe</h3>
-            <p>I was mainly involved in mobile game development.</p>
-          </div>
-          <div class="sub-section">
-            <h2>Education</h2>
-            <h3>Career in Video Game Development - UDIT</h3>
-            <p>2019 - 2024</p>
-            <h3>42 - Fundación Telefónica</h3>
-            <p>2024 - Present</p>
-          </div>
-        </div>
-      </div> -->
+    </div>
     </div>    
+    <!-- Experience -->
+    <div class="section">
+    </div>
     <!-- Projects -->
     <div class="section">
       <div class="containerProjects">
@@ -83,7 +82,7 @@
             </a>
         </div>
         <footer>
-          <p>www.reallygreatsite.com</p>
+          <p>https://dracoangie.itch.io</p>
         </footer>
       </div>
     </div>
@@ -122,7 +121,7 @@
     // Function to scroll to a section
     function goToSection(index) {
       console.log(gsap.registeredPlugins);
-      if (index < 0 || index > 4) return; // Ensure index is within bounds
+      if (index < 0 || index > 5) return; // Ensure index is within bounds
       currentIndexBar = index;
       const offset = index * -100; // Calculate translateX
       container.style.transform = `translateX(${offset}vw)`;

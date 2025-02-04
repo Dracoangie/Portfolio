@@ -2,84 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" mecontent="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <style>
+        @font-face {
+            font-family: 'Rainyhearts';
+            src: url('../fonts/Retro Gaming.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Rainyhearts';
             background: #262626;
             color: #BFB4AE;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
-        .section {
+        .mecontainer {
             display: flex;
-            flex-direction: column-reverse;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+            width: 80%;
             max-width: 1200px;
-            padding: 100px;
+            padding: 25px;
             box-sizing: border-box;
         }
 
-        @media (min-width: 768px) {
-            .section {
-                flex-direction: row;
-                gap: 40px;
-            }
-        }
-
-        .image-container {
-            flex: 1;
+        .meleft {
+            flex: 0 0 40%;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
         }
 
-        .image-container img {
-            position: relative;
-            left: 0;
+        .meleft img {
             width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 40%;
         }
 
-        .boduAboutme {
-            flex: 2;
-            text-align: center;
-            width: 100%;
+        .meright {
+            flex: 0 0 60%;
+            padding: 5vW;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .boduAboutme .logo {
-            font-size: 32px;
+        .meright h1 {
+            font-size: 4vw;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: white;
             margin: 0;
         }
 
-        .boduAboutme hr {
+        .meright hr {
             border: none;
             height: 5px;
             background-color: #e0e0e0;
             opacity: 0.2;
-            margin: 20px 0;
+            margin: 10px 0;
         }
 
-        .content {
+        .meright .mecontent {
             margin-top: 20px;
         }
 
-        .content p {
-            font-size: 18px;
-            line-height: 1.6;
+        .meright .mecontent p {
+            font-size: 2vw;
+            line-height: 1.4;
+        }
+        .meright .mecontent p:hover {
+            color: rgba(255, 255, 255, 1);
         }
 
         .line {
@@ -89,42 +90,101 @@
         }
 
         footer {
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 10px;
+            font-size: 1.5vw;
             color: rgba(255, 255, 255, 0.7);
-            padding-top: 10px;
-            border-top: 5px solid rgba(255, 255, 255, 0.1);
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            color: rgba(255, 255, 255, 1);
+        }
+        @media (max-width: 740px)
+        {
+            .mecontainer {
+                flex-direction: column-reverse;
+            }
+            .meright h1 {
+                margin-top: 1px;
+                font-size: 3.5vw;
+                margin-bottom: 0px;
+            }
+            .meright hr {
+                margin-bottom: 0px;
+            }
+            .meright .mecontent p {
+                font-size: 2.5vw;
+            }
+
+            footer {
+                font-size: 1.5vw;
+                margin-top: 1px;
+            }
+
+            .meleft img  {
+                width: 50%;
+            }
         }
 
-        footer p {
-            transition: color 0.3s ease;
-            margin: 0;
+        @media (max-width: 550px)
+        {
+            .mecontainer {
+                flex-direction: column-reverse;
+            }
+            .meright h1 {
+                font-size: 5vw;
+            }
+
+            .meright .mecontent p {
+                font-size: 3vw;
+            }
+
+            footer {
+                font-size: 2vw;
+            }
+
+            .meleft img  {
+                width: 50%;
+                padding: 6vw;
+            }
         }
 
-        footer p:hover {
-            color: white;
+        @media (min-aspect-ratio: 1.2/1) {
+            .meright h1 {
+                font-size: 40px;
+            }
+
+            .meright .mecontent p {
+                font-size: 23px;
+            }
+
+            footer {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="section">
-        <div class="image-container">
-            <img src="portfolio_img/icon_me.gif">
+    <div class="mecontainer">
+        <div class="meleft">
+            <img src="portfolio_img/icon_me.gif" alt="About Me GIF">
         </div>
-        <div class="boduAboutme">
-            <header>
-                <h1 class="logo">About Me</h1>
-                <hr>
-            </header>
-            <div class="content">
+        <div class="meright">
+            <h1>About Me</h1>
+            <hr>
+            <div class="mecontent">
                 <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
                 <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
                 <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
             </div>
+            <div class="line"></div>
             <footer>
-                <p>anavaro.sala@gmail.com</p>
-                <p>linkedin.com/in/angela-navarro-sala/</p>
-                <p>www.reallygreatsite.com</p>
+                <p><a href="mailto:anavaro.sala@gmail.com">anavaro.sala@gmail.com</a></p>
+                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">linkedin.com/in/angela-navarro-sala/</a></p>
+                <p><a href="https://github.com/Dracoangie" target="_blank">github.com/Dracoangie</a></p>
             </footer>
         </div>
     </div>

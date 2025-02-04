@@ -4,11 +4,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face
+{
+  font-family: 'Rainyhearts';
+  src: url('../fonts/Retro\ Gaming.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html, body {
     height: 100%;
-    overflow: hidden;      
-    font-family: 'Dogica', Arial, sans-serif;
+    overflow: hidden;
+    font-family: 'Rainyhearts';
 }
 
 .navbar {
@@ -23,8 +30,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     z-index: 20;
-    font-family: Ar
-    ial, sans-serif;
+    font-family: 'Rainyhearts';
 }
 
 .navbar a {
@@ -45,7 +51,7 @@ html, body {
 
 .container {
     display: flex;
-    width: 400vw; /* 5 sections, 100% width each */
+    width: 500vw; /* 5 sections, 100% width each */
     overflow-x: hidden; /* No scrollbars visible */
     overflow-y: hidden;
     transition: transform 0.5s ease-in-out;
@@ -72,6 +78,7 @@ html, body {
 
 .home-content {
     flex-direction: column;
+    font-family: 'Rainyhearts';
 }
 
 .homeImage {
@@ -91,7 +98,7 @@ html, body {
 }
 
 .home-overlay {
-    font-size: 8vw;
+    font-size: 7vw;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.1);
     position: absolute;
@@ -108,7 +115,6 @@ html, body {
 
 @media (max-width: 768px) {
 
-  /* Home */
   .section:nth-child(1) {
       flex-direction: column;
       justify-content: center;
@@ -149,70 +155,177 @@ html, body {
 
 /* Resto del código original */
 .section:nth-child(2) { 
-    background-color: #FEFEFE;
-    display: flex;
-    color: #262626;
-    justify-content: space-around;
-    align-items: center;
+  margin: 0;
+  font-family: 'Rainyhearts';
+  background: #262626;
+  color: #BFB4AE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.top-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 2px solid #ddd;
-    padding: 20px;
+.mecontainer {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  padding: 25px;
+  box-sizing: border-box;
 }
 
-.top-section img {
-    max-width: 30%;
-    max-height: 50%;
-    object-fit: fill;
-    border-radius: 50%;
+.meleft {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.top-section .text-content {
-    margin-left: 20px;
-    text-align: left;
+.meleft img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 40%;
 }
 
-h1, h2 {
-    margin: 0 0 10px;
+.meright {
+  flex: 0 0 60%;
+  padding: 5vW;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-p {
-    margin: 0;
+.meright h1 {
+  font-size: 4vw;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
 }
 
-.bottom-section {
-    flex: 1;
-    display: flex;
+.meright hr {
+  border: none;
+  height: 5px;
+  background-color: #e0e0e0;
+  opacity: 0.2;
+  margin: 10px 0;
 }
 
-.bottom-section .sub-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-right: 2px solid #ddd;
-    padding: 20px;
+.meright .mecontent {
+  margin-top: 20px;
 }
 
-.bottom-section .sub-section:last-child {
-    border-right: none;
+.meright .mecontent p {
+  font-size: 2vw;
+  line-height: 1.4;
+}
+.meright .mecontent p:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
+.line {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 20px 0;
+}
+
+footer {
+  margin-top: 10px;
+  font-size: 1.5vw;
+  color: rgba(255, 255, 255, 0.7);
+}
+footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 1);
+}
+@media (max-width: 740px)
+{
+  .mecontainer {
+      flex-direction: column-reverse;
+  }
+  .meright h1 {
+      margin-top: 1px;
+      font-size: 3.5vw;
+      margin-bottom: 0px;
+  }
+  .meright hr {
+      margin-bottom: 0px;
+  }
+  .meright .mecontent p {
+      font-size: 2.5vw;
+  }
+
+  footer {
+      font-size: 1.5vw;
+      margin-top: 1px;
+  }
+
+  .meleft img  {
+      width: 50%;
+  }
+}
+
+@media (max-width: 550px)
+{
+  .mecontainer {
+      flex-direction: column-reverse;
+  }
+  .meright h1 {
+      font-size: 5vw;
+  }
+
+  .meright .mecontent p {
+      font-size: 3vw;
+  }
+
+  footer {
+      font-size: 2vw;
+  }
+
+  .meleft img  {
+      width: 50%;
+      padding: 6vw;
+  }
+}
+
+@media (min-aspect-ratio: 1.2/1) {
+  .meright h1 {
+      font-size: 40px;
+  }
+
+  .meright .mecontent p {
+      font-size: 23px;
+  }
+
+  footer {
+      font-size: 18px;
+  }
+}
+
+/* Experience */
+.section:nth-child(3) { 
+  margin: 0;
+  font-family: 'Rainyhearts';
+  background: #262626;
+  color: #BFB4AE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
 
 /* Projects */
-.section:nth-child(3) {
+.section:nth-child(4) {
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  /* 
-  background: linear-gradient(to bottom, #262626 92%, #BFBFBF 10%); 
-  background: #262626 ;
-  */
+  font-family: 'Rainyhearts';
   background: #262626;
   color: #BFB4AE;
   display: flex;
@@ -348,13 +461,9 @@ footer p:hover {
 }
 
 /* Gallery*/
-.section:nth-child(4) {
+.section:nth-child(5) {
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  /* 
-  background: linear-gradient(to bottom, #262626 92%, #BFBFBF 10%); 
-  background: #262626 ;
-  */
+  font-family: 'Rainyhearts';
   background: #262626; 
   color: #BFB4AE;
   display: flex;
@@ -457,12 +566,7 @@ footer p:hover {
   color: white;
 }
 
-
-
-@media (max-width: 1000px) {        
-  .section:nth-child(4) {
-    background: linear-gradient(to bottom, #BFBFBF 55%, #262626 10%); 
-  }
+@media (max-width: 1000px) {
   .galleryGallery {
       flex-direction: column;
       align-items: center;
