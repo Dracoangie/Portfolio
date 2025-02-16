@@ -1,130 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href=".css/style.css">
-    <link rel="icon" type="image/png" href="portfolio_img/icon_me_circle.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Ángela Navarro</title>
+  <link rel="stylesheet" href=".css/web_styles.css"
+  ><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+  <link rel="icon" type="image/png" href="portfolio_img/icon_me_circle.png">
+  
 </head>
 <body>
-    <section class="bar_modal">
-        <div class="modal_container">
-            <h2 class="modal_title">This is me</h2>
-            <p class="modal_paragraph">
-                hola soy una patata danzante en el mundo de las idea que se ha pasado momentaneamente 
-                al mundo terrenal para asombrar con su increible magnificencia y sabiduria.
-            </p>
-            <a href="#" class="modal_close">cerrar</a>
-        </div>
-        
-        <div class="modal_container_der_group">
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u2</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u3</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-        </div>
-    </section>
-    <section class="ArtGallery_Modal">
-        <div class="modal_container">
-            <h2 class="modal_title">Art Gallery</h2>
-            <p class="modal_paragraph">
-                galeria de arte, donde podrás encontrar todo lo que te propongas    
-            </p>
-            <a href="#" class="modal_close">cerrar</a>
-        </div>
-        
-        <div class="modal_container_der_group">
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u2</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u3</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-        </div>
-    </section>
-    <section class="Cinema_Modal">
-        <div class="modal_container">
-            <h2 class="modal_title">Cinema</h2>
-            <p class="modal_paragraph">
-                galeria de arte, donde podrás encontrar todo lo que te propongas    
-            </p>
-            <a href="#" class="modal_close">cerrar</a>
-        </div>
-        
-        <div class="modal_container_der_group">
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u2</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u3</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-        </div>
-    </section>
-    <section class="Room_Modal">
-        <div class="modal_container">
-            <h2 class="modal_title">my room my life</h2>
-            <p class="modal_paragraph">
-                galeria de arte, donde podrás encontrar todo lo que te propongas    
-            </p>
-            <a href="#" class="modal_close">cerrar</a>
-        </div>
-        
-        <div class="modal_container_der_group">
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u2</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-            <div class="modal_container_der">
-                <h2 class="modal_title">This is u3</h2>
-                <p class="modal_paragraph">proyecto genérico 4</p>
-                <a href="#" class="modal_close">cerrar</a>
-            </div>
-        </div>
-    </section>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a onclick="goToSection(0)">Home</a>
+    <a onclick="goToSection(1)">About me</a>
+    <a onclick="goToSection(2)">Experience</a>
+    <a onclick="goToSection(3)">Projects</a>
+  <!--    <a onclick="goToSection(4)">Gallery</a>-->
+  </div>
 
-    <canvas id="myCanvas" width="1000" height="1000"></canvas>
-    <script src=".js/code.js"></script>
-    <script src=".js/player.js"></script>
-    <script src=".js/input.js"></script>
-    <script src=".js/helper.js"></script>
-    <script src=".js/scene.js"></script>
-    <script src=".js/map.js"></script>
-    <script src=".js/camera.js"></script>
-    <script src=".js/mapNodes.js"></script>
-    <script src=".js/Interactable.js"></script>
+  <!-- Sections -->
+  <div class="container" id="container">
+    <!-- home -->
+    <div class="section">
+      <div class="home-content">
+        <h1 class="home-title">Angela Navarro</h1>
+        <div class="home-overlay">PORTFOLIO</div>
+        <p class="home-description">
+          Video game developer specialising in Tecnical Art and VFX.
+        </p>
+      </div>
+        <img src="portfolio_img/03-min.jpg"class="homeImage">
+    </div>
+    <!-- about-me -->
+    <div class="section about-me">
+      <div class="mecontainer">
+        <div class="meleft">
+            <img src="portfolio_img/icon_me.gif" alt="About Me GIF">
+        </div>
+        <div class="meright">
+            <h1>About Me</h1>
+            <hr>
+            <div class="mecontent">
+                <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
+                <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
+                <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+            </div>
+            <footer>
+                <p><a href="mailto:anavaro.sala@gmail.com">anavaro.sala@gmail.com</a></p>
+                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">angela-navarro-sala</a></p>
+                <p><a href="https://github.com/Dracoangie" target="_blank">github.com/Dracoangie</a></p>
+            </footer>
+        </div>
+    </div>
+    </div>    
+    <!-- Experience -->
+    <div class="section">
+      <div class="expMecontainer">
+        <div class="expMeright">
+            <div class="expMecontent">
+                <h1>Experience</h1>
+                <hr>
+                <p>February 2022 - May 2022<br>
+                Trainee Programmer In LabCave (Unity).</p>
+                <div class="line"></div>
+                <div class="skills-education">
+                    <div class="expSection">
+                        <h1>Skills</h1>
+                        <hr>
+                        <img src="portfolio_img/62e131df7fe3599fdd46ecb3.png" alt="Skill 1">
+                        <img src="portfolio_img/unreal-icon-2048x2048-6f2xqdhr.png" alt="Skill 2">
+                        <img src="portfolio_img/blender-1-2.svg" alt="Skill 3">
+                        <img src="portfolio_img/C_Logo.png" alt="Skill 4">
+                        <img src="portfolio_img/JavaScript-logo.png" alt="Skill 5">
+                        <img src="portfolio_img/adobe-substance-3d-designer-icon.png" alt="Skill 6">
+                    </div>
+                    <div class="expSection">
+                        <h1>Education</h1>
+                        <hr>
+                        <p>UDIT 2019-2024<br>
+                          Degree in Video Game development</p>
+                        <p>
+                          <br>
+                        </p>
+                        <p>42 Cursus Fundación Telefónica <br>
+                          2024 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="expMeleft">
+            <img src="portfolio_img/angela_editada.png" alt="About Me GIF">
+        </div>
+      </div>
+    </div>
+    <!-- Projects -->
+    <div class="section">
+      <div class="containerProjects">
+        <header>
+            <h1 class="logo">Projects</h1>
+            <hr style="border: none; height: 5px; background-color: #e0e0e0; opacity: 0.2; margin: 20px 0;">
+        </header>
+        <div class="galleryProjects">
+            <a href="https://rainbow-bears-studio.itch.io/babelship-tales-from-the-black-hole-suburb" class="imageProjects">
+              <img src="portfolio_img/Kh2vOs.png" alt="babelship-tales-from-the-black-hole-suburb">
+              <div class="overlay">Babelship: tales from the black hole suburb</div>
+            </a>
+            <a href="https://xshoganai.itch.io/competencia-desleal" class="imageProjects">
+              <img src="portfolio_img/Competencia desleal.png" alt="Fruits under Glass Dome">
+              <div class="overlay">Competencia desleal</div>
+            </a>
+            <a href="https://mario-gallego-cano.itch.io/anulax" class="imageProjects">
+              <img src="portfolio_img/Anulax.png" alt="Decorative Vase">
+              <div class="overlay">Anulax</div>
+            </a>
+        </div>
+        <footer>
+          <p><a href="https://dracoangie.itch.io" target="_blank">dracoangie.itch.io</a></p>
+        </footer>
+      </div>
+    </div>
+    <!-- Gallery -->
+    <div class="section">
+      <!--<div class="containerGallery">
+        <header>
+          <h1 class="logo">Gallery</h1>
+          <hr style="border: none; height: 5px; background-color: #e0e0e0; opacity: 0.2; margin: 20px 0;">
+        </header>
+        <div class="galleryGallery">
+          <a href="portfolio_img/angela_cortada.jpg" class="imageGallery">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Glass with Lime">
+            <div class="overlay">Glass with Lime</div>
+          </a>
+          <a href="portfolio_img/angela_cortada.jpg" class="imageGallery">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Fruits under Glass Dome">
+            <div class="overlay">Fruits under Glass Dome</div>
+          </a>
+          <a href="portfolio_img/angela_cortada.jpg" class="imageGallery">
+            <img src="portfolio_img/angela_cortada.jpg" alt="Decorative Vase">
+            <div class="overlay">Decorative Vase</div>
+          </a>
+        </div>
+        <footer>
+          <p>   </p>
+        </footer>
+      </div> -->
+    </div>
+  </div>
 
+  <script>
+    const container = document.getElementById('container');
+    let currentIndexBar = 0;
+
+    // Function to scroll to a section
+    function goToSection(index) {
+      console.log(gsap.registeredPlugins);
+      if (index < 0 || index > 5) return;
+      currentIndexBar = index;
+      const offset = index * -100;
+      container.style.transform = `translateX(${offset}vw)`;
+    }
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+        carouselText.style.opacity = 0;
+        setTimeout(() => {
+            carouselText.textContent = texts[currentIndex];
+            carouselText.style.opacity = 1;
+        }, 500);
+    }
+
+    leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : texts.length - 1;
+        updateCarousel();
+    });
+
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex < texts.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+  </script>
 </body>
 </html>
