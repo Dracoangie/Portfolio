@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" mecontent="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <style>
         @font-face {
@@ -25,7 +25,7 @@
             overflow: hidden;
         }
 
-        .mecontainer {
+        .expMecontainer {
             display: flex;
             width: 80%;
             max-width: 1200px;
@@ -33,29 +33,29 @@
             box-sizing: border-box;
         }
 
-        .meleft {
+        .expMeleft {
             flex: 0 0 40%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .meleft img {
+        .expMeleft img {
             width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 40%;
         }
 
-        .meright {
+        .expMeright {
             flex: 0 0 60%;
-            padding: 5vW;
+            padding: 5vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .meright h1 {
+        .expMeright h1 {
             font-size: 4vw;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -63,7 +63,7 @@
             margin: 0;
         }
 
-        .meright hr {
+        .expMeright hr {
             border: none;
             height: 5px;
             background-color: #e0e0e0;
@@ -71,15 +71,16 @@
             margin: 10px 0;
         }
 
-        .meright .mecontent {
+        .expMeright .expMecontent {
             margin-top: 20px;
         }
 
-        .meright .mecontent p {
+        .expMeright .expMecontent p {
             font-size: 2vw;
             line-height: 1.4;
         }
-        .meright .mecontent p:hover {
+
+        .expMeright .expMecontent p:hover {
             color: rgba(255, 255, 255, 1);
         }
 
@@ -89,103 +90,99 @@
             margin: 20px 0;
         }
 
-        footer {
-            margin-top: 10px;
-            font-size: 1.5vw;
-            color: rgba(255, 255, 255, 0.7);
+        .skills-education {
+            display: flex;
+            justify-content: space-between;
         }
-        footer a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
+
+        .skills-education .expSection {
+            flex: 0 0 48%;
         }
-        footer a:hover {
-            text-decoration: underline;
-            color: rgba(255, 255, 255, 1);
+
+        .skills-education .expSection img {
+            width: 30%;
+            height: auto;
+            margin: 5px;
         }
-        @media (max-width: 740px)
-        {
-            .mecontainer {
-                flex-direction: column-reverse;
+
+        @media (max-width: 740px) {
+            .expMecontainer {
+                flex-direction: column;
             }
-            .meright h1 {
+
+            .expMeright h1 {
                 margin-top: 1px;
                 font-size: 3.5vw;
                 margin-bottom: 0px;
             }
-            .meright hr {
+
+            .expMeright hr {
                 margin-bottom: 0px;
             }
-            .meright .mecontent p {
+
+            .expMeright .expMecontent p {
                 font-size: 2.5vw;
             }
-
-            footer {
-                font-size: 1.5vw;
-                margin-top: 1px;
+            .expMeleft img {
+                width: 200px;
             }
 
-            .meleft img  {
-                width: 50%;
-            }
         }
 
-        @media (max-width: 550px)
-        {
-            .mecontainer {
-                flex-direction: column-reverse;
+        @media (max-width: 550px) {
+            .expMecontainer {
+                flex-direction: column;
             }
-            .meright h1 {
+
+            .expMeright h1 {
                 font-size: 5vw;
             }
 
-            .meright .mecontent p {
+            .expMeright .expMecontent p {
                 font-size: 3vw;
-            }
-
-            footer {
-                font-size: 2vw;
-            }
-
-            .meleft img  {
-                width: 50%;
-                padding: 6vw;
             }
         }
 
         @media (min-aspect-ratio: 1.2/1) {
-            .meright h1 {
+            .expMeright h1 {
                 font-size: 40px;
             }
 
-            .meright .mecontent p {
+            .expMeright .expMecontent p {
                 font-size: 23px;
-            }
-
-            footer {
-                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="mecontainer">
-        <div class="meleft">
-            <img src="portfolio_img/icon_me.gif" alt="About Me GIF">
-        </div>
-        <div class="meright">
-            <h1>About Me</h1>
-            <hr>
-            <div class="mecontent">
+    <div class="expMecontainer">
+        <div class="expMeright">
+            <div class="expMecontent">
+                <h1>Experience</h1>
+                <hr>
                 <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
-                <p>Proficient in Unity (C#) and Unreal Engine (C++ and Blueprints), with additional skills in web development and programming in C.</p>
-                <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+                <div class="line"></div>
+                <div class="skills-education">
+                    <div class="expSection">
+                        <h1>Skills</h1>
+                        <hr>
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 1">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 2">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 3">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 4">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 5">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 6">
+                    </div>
+                    <div class="expSection">
+                        <h1>Education</h1>
+                        <hr>
+                        <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+                    </div>
+                </div>
             </div>
-            <div class="line"></div>
-            <footer>
-                <p><a href="mailto:anavaro.sala@gmail.com">anavaro.sala@gmail.com</a></p>
-                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">linkedin.com/in/angela-navarro-sala/</a></p>
-                <p><a href="https://github.com/Dracoangie" target="_blank">github.com/Dracoangie</a></p>
-            </footer>
+        </div>
+        <div class="expMeleft">
+            <img src="portfolio_img/angela_editada.png" alt="About Me GIF">
         </div>
     </div>
 </body>

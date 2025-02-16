@@ -18,7 +18,7 @@
     <a onclick="goToSection(1)">About me</a>
     <a onclick="goToSection(2)">Experience</a>
     <a onclick="goToSection(3)">Projects</a>
-    <a onclick="goToSection(4)">Gallery</a>
+  <!--    <a onclick="goToSection(4)">Gallery</a>-->
   </div>
 
   <!-- Sections -->
@@ -50,7 +50,7 @@
             </div>
             <footer>
                 <p><a href="mailto:anavaro.sala@gmail.com">anavaro.sala@gmail.com</a></p>
-                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">linkedin.com/in/angela-navarro-sala/</a></p>
+                <p><a href="https://www.linkedin.com/in/angela-navarro-sala/" target="_blank">angela-navarro-sala</a></p>
                 <p><a href="https://github.com/Dracoangie" target="_blank">github.com/Dracoangie</a></p>
             </footer>
         </div>
@@ -58,6 +58,36 @@
     </div>    
     <!-- Experience -->
     <div class="section">
+      <div class="expMecontainer">
+        <div class="expMeright">
+            <div class="expMecontent">
+                <h1>Experience</h1>
+                <hr>
+                <p>I am a video game developer specializing in Technical Art and VFX, blending creativity with technical precision to craft immersive experiences.</p>
+                <div class="line"></div>
+                <div class="skills-education">
+                    <div class="expSection">
+                        <h1>Skills</h1>
+                        <hr>
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 1">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 2">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 3">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 4">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 5">
+                        <img src="portfolio_img/angela_editada.png" alt="Skill 6">
+                    </div>
+                    <div class="expSection">
+                        <h1>Education</h1>
+                        <hr>
+                        <p>I also have a strong artistic background, using tools like Photoshop and 3Ds Max to enhance my projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="expMeleft">
+            <img src="portfolio_img/angela_editada.png" alt="About Me GIF">
+        </div>
+      </div>
     </div>
     <!-- Projects -->
     <div class="section">
@@ -125,25 +155,6 @@
       const offset = index * -100; // Calculate translateX
       container.style.transform = `translateX(${offset}vw)`;
     }
-
-    const carouselImages = document.querySelector('.carousel-images');
-    const carouselText = document.querySelector('.carousel-text');
-    const leftArrow = document.querySelector('.carousel-arrow.left');
-    const rightArrow = document.querySelector('.carousel-arrow.right');
-    const dots = document.querySelectorAll('.carousel-dots button');
-
-    const images = [
-        "portfolio_img/angela.jpg",
-        "portfolio_img/angela_cortada.jpg",
-        "portfolio_img/angela_cortada.jpg"
-    ];
-
-    const texts = [
-        "Texto de la Imagen 1",
-        "Texto de la Imagen 2",
-        "Texto de la Imagen 3"
-    ];
-
     let currentIndex = 0;
 
     function updateCarousel() {

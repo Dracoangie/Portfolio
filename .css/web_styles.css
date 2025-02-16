@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 @font-face
 {
@@ -239,7 +238,7 @@ footer a:hover {
   text-decoration: underline;
   color: rgba(255, 255, 255, 1);
 }
-@media (max-width: 768px)
+@media (max-width: 750px)
 {
   .mecontainer {
       flex-direction: column-reverse;
@@ -260,9 +259,8 @@ footer a:hover {
       font-size: 1.5vw;
       margin-top: 1px;
   }
-
   .meleft img  {
-      width: 50%;
+      width: 50vw;
   }
 }
 
@@ -284,8 +282,8 @@ footer a:hover {
   }
 
   .meleft img  {
-      width: 50%;
-      padding: 6vw;
+      width: 80%;
+      padding: 2vw;
   }
 }
 
@@ -315,6 +313,134 @@ footer a:hover {
   text-align: center;
   min-height: 100vh;
   overflow: hidden;
+}
+
+.expMecontainer {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.expMeleft {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expMeleft img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 40%;
+}
+
+.expMeright {
+  flex: 0 0 60%;
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.expMeright h1 {
+  font-size: 4vw;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+}
+
+.expMeright hr {
+  border: none;
+  height: 5px;
+  background-color: #e0e0e0;
+  opacity: 0.2;
+  margin: 10px 0;
+}
+
+.expMeright .expMecontent {
+  margin-top: 20px;
+}
+
+.expMeright .expMecontent p {
+  font-size: 2vw;
+  line-height: 1.4;
+}
+
+.expMeright .expMecontent p:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.line {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 20px 0;
+}
+
+.skills-education {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills-education .expSection {
+  flex: 0 0 48%;
+}
+
+.skills-education .expSection img {
+  width: 30%;
+  height: auto;
+  margin: 5px;
+}
+
+@media (max-width: 740px) {
+  .expMecontainer {
+      flex-direction: column;
+  }
+
+  .expMeright h1 {
+      margin-top: 1px;
+      font-size: 3.5vw;
+      margin-bottom: 0px;
+  }
+
+  .expMeright hr {
+      margin-bottom: 0px;
+  }
+
+  .expMeright .expMecontent p {
+      font-size: 2.5vw;
+  }
+  .expMeleft img {
+      width: 200px;
+  }
+
+}
+
+@media (max-width: 550px) {
+  .expMecontainer {
+      flex-direction: column;
+  }
+
+  .expMeright h1 {
+      font-size: 5vw;
+  }
+
+  .expMeright .expMecontent p {
+      font-size: 3vw;
+  }
+}
+
+@media (min-aspect-ratio: 1.2/1) {
+  .expMeright h1 {
+      font-size: 40px;
+  }
+
+  .expMeright .expMecontent p {
+      font-size: 23px;
+  }
 }
 
 /* Projects */
