@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -238,10 +237,12 @@ footer a:hover {
   text-decoration: underline;
   color: rgba(255, 255, 255, 1);
 }
-@media (max-width: 750px)
-{
+@media (max-width: 750px) {
   .mecontainer {
       flex-direction: column-reverse;
+  }
+  .meright {
+      padding: 2vw; /* Reduce el padding para disminuir el espacio */
   }
   .meright h1 {
       margin-top: 1px;
@@ -254,36 +255,36 @@ footer a:hover {
   .meright .mecontent p {
       font-size: 2.5vw;
   }
-
+  .meleft img {
+      width: 50vw;
+      margin-bottom: 1vw; /* Añade un margen inferior para reducir el espacio */
+  }
   footer {
       font-size: 1.5vw;
       margin-top: 1px;
   }
-  .meleft img  {
-      width: 50vw;
-  }
 }
 
-@media (max-width: 550px)
-{
+@media (max-width: 550px) {
   .mecontainer {
       flex-direction: column-reverse;
+  }
+  .meright {
+      padding: 1vw; /* Reduce aún más el padding para disminuir el espacio */
   }
   .meright h1 {
       font-size: 5vw;
   }
-
   .meright .mecontent p {
       font-size: 3vw;
   }
-
-  footer {
-      font-size: 2vw;
-  }
-
-  .meleft img  {
+  .meleft img {
       width: 80%;
       padding: 2vw;
+      margin-bottom: 1vw; /* Añade un margen inferior para reducir el espacio */
+  }
+  footer {
+      font-size: 2vw;
   }
 }
 

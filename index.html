@@ -9,7 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
   <link rel="icon" type="image/png" href="portfolio_img/icon_me_circle.png">
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 </head>
 <body>
   <!-- Navbar -->
@@ -123,8 +123,8 @@
       </div>
     </div>
     <!-- Gallery -->
-    <div class="section">
-      <!--<div class="containerGallery">
+    <!--<div class="section">
+      <div class="containerGallery">
         <header>
           <h1 class="logo">Gallery</h1>
           <hr style="border: none; height: 5px; background-color: #e0e0e0; opacity: 0.2; margin: 20px 0;">
@@ -146,15 +146,15 @@
         <footer>
           <p>   </p>
         </footer>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
   </div>
 
   <script>
     const container = document.getElementById('container');
     let currentIndexBar = 0;
+    const totalSections = document.querySelectorAll('.section').length;
 
-    // Function to scroll to a section
     function goToSection(index) {
       console.log(gsap.registeredPlugins);
       if (index < 0 || index > 5) return;
@@ -162,34 +162,27 @@
       const offset = index * -100;
       container.style.transform = `translateX(${offset}vw)`;
     }
-    let currentIndex = 0;
 
-    function updateCarousel() {
-        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-        carouselText.style.opacity = 0;
-        setTimeout(() => {
-            carouselText.textContent = texts[currentIndex];
-            carouselText.style.opacity = 1;
-        }, 500);
-    }
-
-    leftArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : texts.length - 1;
-        updateCarousel();
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'a' || event.key === 'A') {
+        currentIndexBar = (currentIndexBar > 0) ? currentIndexBar - 1 : totalSections - 1;
+        goToSection(currentIndexBar);
+      } else if (event.key === 'd' || event.key === 'D') {
+        currentIndexBar = (currentIndexBar < totalSections - 1) ? currentIndexBar + 1 : 0;
+        goToSection(currentIndexBar);
+      }
     });
 
-    rightArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex < texts.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+    const hammer = new Hammer(container);
+
+    hammer.on('swipeleft', () => {
+      currentIndexBar = (currentIndexBar < totalSections - 1) ? currentIndexBar + 1 : 0;
+      goToSection(currentIndexBar);
     });
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
-        });
+    hammer.on('swiperight', () => {
+      currentIndexBar = (currentIndexBar > 0) ? currentIndexBar - 1 : totalSections - 1;
+      goToSection(currentIndexBar);
     });
   </script>
 </body>
