@@ -32,19 +32,70 @@ html, body {
 }
 
 .navbar a {
-    text-decoration: none;
-    color: white;
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    transition: font-size 0.3s ease;
-    cursor: pointer;
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: font-size 0.3s ease;
+  cursor: pointer;
 }
 
 .navbar a:hover {
-    font-size: 1.2rem;
-    color: rgb(225, 215, 215);
+  font-size: 1.2rem;
+  color: rgb(179, 179, 179);
+}
+
+.navbar .menu-button {
+  font-family: 'Rainyhearts';
+  display: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.navbar .menu-button:hover {
+  color: rgb(179, 179, 179);
+}
+
+.navbar .menu {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .navbar .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: rgba(29, 29, 29, 0.6);
+      width: 100%;
+      text-align: right;
+  }
+
+  .navbar {
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0);
+  }	
+
+  .navbar .menu-button {
+      display: block;
+  }
+
+  .navbar .menu a {
+      margin: 1rem;
+  }
+
+  .navbar .menu.show {
+      display: flex;
+  }
 }
 
 .container {
@@ -552,7 +603,7 @@ footer p:hover {
 
 
 
-@media (max-width: 1000px)
+@media (max-width: 900px)
 {
   .galleryProjects {
       flex-direction: column;
@@ -563,7 +614,7 @@ footer p:hover {
   .imageProjects {
       width: 80%;
       height: auto;
-      max-width: 300px;
+      max-width: 250px;
       aspect-ratio: 4 / 3;
   }
 

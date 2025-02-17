@@ -14,11 +14,14 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <a onclick="goToSection(0)">Home</a>
-    <a onclick="goToSection(1)">About me</a>
-    <a onclick="goToSection(2)">Experience</a>
-    <a onclick="goToSection(3)">Projects</a>
-  <!--    <a onclick="goToSection(4)">Gallery</a>-->
+    <button class="menu-button" onclick="toggleMenu()">Menu</button>
+    <div class="menu">
+      <a onclick="goToSection(0)">Home</a>
+      <a onclick="goToSection(1)">About me</a>
+      <a onclick="goToSection(2)">Experience</a>
+      <a onclick="goToSection(3)">Projects</a>
+      <!-- <a onclick="goToSection(4)">Gallery</a> -->
+    </div>
   </div>
 
   <!-- Sections -->
@@ -184,6 +187,11 @@
       currentIndexBar = (currentIndexBar > 0) ? currentIndexBar - 1 : totalSections - 1;
       goToSection(currentIndexBar);
     });
+
+    function toggleMenu() {
+      const menu = document.querySelector('.navbar .menu');
+      menu.classList.toggle('show');
+    }
   </script>
 </body>
 </html>
