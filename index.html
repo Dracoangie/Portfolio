@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Ángela Navarro</title>
-  <link rel="stylesheet" href=".css/web_styles.css"
+  <link rel="stylesheet" href="css/web_styles.css"
   ><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
@@ -159,18 +159,17 @@
     const totalSections = document.querySelectorAll('.section').length;
 
     function goToSection(index) {
-      console.log(gsap.registeredPlugins);
-      if (index < 0 || index > 5) return;
+      if (index < 0 || index >= totalSections) return;
       currentIndexBar = index;
       const offset = index * -100;
       container.style.transform = `translateX(${offset}vw)`;
     }
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'a' || event.key === 'A') {
+      if (event.key === 'a' || event.key === 'A' || event.key === 'ArrowLeft') {
         currentIndexBar = (currentIndexBar > 0) ? currentIndexBar - 1 : totalSections - 1;
         goToSection(currentIndexBar);
-      } else if (event.key === 'd' || event.key === 'D') {
+      } else if (event.key === 'd' || event.key === 'D' || event.key === 'ArrowRight') {
         currentIndexBar = (currentIndexBar < totalSections - 1) ? currentIndexBar + 1 : 0;
         goToSection(currentIndexBar);
       }
